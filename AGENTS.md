@@ -161,7 +161,7 @@ One-line hook describing the work
 1. Notification (INFOCOM'17) - "Understanding and predicting mobile notifications"
 2. ActivPass (CHI'15) - "Password-free authentication using daily activities"
 3. OpTen (COMSNETS'15) - "Optimizing energy consumption in mobile sensing"
-4. RetailGuide (COMSNETS'14) - "Indoor navigation using landmarks and phone sensors"
+4. RetailGuide (COMSNETS'14) - "Indoor navigation using smartphone sensor landmarks"
 5. Sprinkler (CellNet'13) - "Efficient mobile data offloading through WiFi"
 
 ---
