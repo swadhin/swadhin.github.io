@@ -437,7 +437,7 @@
             
             <!-- Short Bio - For recruiters and collaborators -->
             <p style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px dashed var(--card-border); font-size: 0.95rem; color: var(--text); line-height: 1.7; max-width: 700px; text-align: center;">
-                I build AI systems that perceive and act in the physical world. My work spans wireless sensing using RFID, mmWave, and acoustics, GenAI for network intelligence, and indoor air quality monitoring. I hold a <a href="papers/PRADHAN-DISSERTATION-2020.pdf">PhD</a> from UT Austin, have published 15+ papers at premier venues including MobiCom, CHI, SenSys, and NeurIPS, and shipped multiple AI products at Cisco.
+                I build AI systems that perceive and act in the physical world. My work spans wireless sensing using RFID, mmWave, and acoustics, GenAI for network intelligence, indoor air quality monitoring, and mobile systems research. I hold a <a href="papers/PRADHAN-DISSERTATION-2020.pdf">PhD</a> from UT Austin, have published 15+ papers at premier venues including MobiCom, CHI, SenSys, and NeurIPS, and shipped multiple AI products at Cisco.
             </p>
         </header>
         
@@ -446,6 +446,7 @@
             <button class="tab-btn active" data-tab="sensing" role="tab" aria-selected="true">Wireless Sensing</button>
             <button class="tab-btn" data-tab="genai" role="tab" aria-selected="false">GenAI for Networks</button>
             <button class="tab-btn" data-tab="airquality" role="tab" aria-selected="false">Indoor Air Quality</button>
+            <button class="tab-btn" data-tab="mobile" role="tab" aria-selected="false">Mobile Systems</button>
         </div>
         
         <!-- Tab: Sensing -->
@@ -665,6 +666,80 @@
             </div>
         </section>
         
+        <!-- Tab: Mobile Systems -->
+        <section class="tab-content" id="mobile" role="tabpanel" aria-label="Mobile Systems Research">
+            <article class="idea">
+                <strong>Building intelligent mobile systems.</strong> From password-free authentication using daily activities to understanding notification behaviors and optimizing mobile sensing, we explore how smartphones can become smarter, more secure, and energy-efficient through context-aware computing.
+            </article>
+            
+            <div class="projects">
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">Notification</span>
+                        <span class="badge badge-infocom">INFOCOM'17</span>
+                    </div>
+                    <p class="project-hook">Understanding and predicting mobile notification responses</p>
+                    <div class="project-links">
+                        <a href="papers/Notification_Infocom17.pdf">PDF</a>
+                        <a href="ppts/Notification_Infocom17_Swadhin.pptx">PPT</a>
+                        <a href="bibs/notification.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">ActivPass</span>
+                        <span class="badge badge-chi">CHI'15</span>
+                    </div>
+                    <p class="project-hook">Password-free authentication using daily activities</p>
+                    <div class="project-links">
+                        <a href="papers/activpass_chi_2015.pdf">PDF</a>
+                        <a href="ppts/ActivPass_CHI_2015.pdf">PPT</a>
+                        <a href="bibs/activpass.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">OpTen</span>
+                        <span class="badge badge-other">COMSNETS'15</span>
+                    </div>
+                    <p class="project-hook">Optimizing energy consumption in mobile sensing</p>
+                    <div class="project-links">
+                        <a href="papers/opten_comsnets_2015.pdf">PDF</a>
+                        <a href="ppts/opten_comsnets_2015.ppt">PPT</a>
+                        <a href="bibs/energy.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">RetailGuide</span>
+                        <span class="badge badge-other">COMSNETS'14</span>
+                    </div>
+                    <p class="project-hook">Indoor navigation using landmarks and phone sensors</p>
+                    <div class="project-links">
+                        <a href="papers/retailguide_comsnets_2014.pdf">PDF</a>
+                        <a href="ppts/retailguide_comsnets_2014.ppt">PPT</a>
+                        <a href="bibs/retailguide.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">Sprinkler</span>
+                        <span class="badge badge-other">CellNet'13</span>
+                    </div>
+                    <p class="project-hook">Efficient mobile data offloading through WiFi</p>
+                    <div class="project-links">
+                        <a href="papers/sprinkler_cellnet_2013.pdf">PDF</a>
+                        <a href="ppts/sprinkler_cellnet_2013.ppt">PPT</a>
+                        <a href="bibs/sprinkler.bib">BibTeX</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
         <!-- Patents Section -->
         <section style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--card-border);">
             <h2 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text);">Patents</h2>
@@ -786,22 +861,48 @@
     </main>
     
     <script>
-        // Tab switching
+        // Function to switch to a specific tab
+        function switchToTab(tabId) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.setAttribute('aria-selected', 'true');
+            }
+            
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            const activeContent = document.getElementById(tabId);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+        }
+        
+        // Tab switching with URL hash
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update buttons
-                document.querySelectorAll('.tab-btn').forEach(b => {
-                    b.classList.remove('active');
-                    b.setAttribute('aria-selected', 'false');
-                });
-                btn.classList.add('active');
-                btn.setAttribute('aria-selected', 'true');
-                
-                // Update content
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                document.getElementById(btn.dataset.tab).classList.add('active');
+                const tabId = btn.dataset.tab;
+                window.location.hash = tabId;
+                switchToTab(tabId);
             });
         });
+        
+        // Handle initial load and back/forward navigation
+        function handleHashChange() {
+            const hash = window.location.hash.slice(1); // Remove the '#'
+            const tabId = hash || 'sensing'; // Default to 'sensing' if no hash
+            switchToTab(tabId);
+        }
+        
+        // Listen for hash changes (back/forward buttons)
+        window.addEventListener('hashchange', handleHashChange);
+        
+        // Handle initial page load
+        handleHashChange();
     </script>
 </body>
 </html>
