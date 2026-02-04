@@ -27,6 +27,9 @@
     <meta property="twitter:description" content="ML Tech Lead @ Cisco. Physical AI, multimodal sensing, GenAI. 15+ papers, 10+ patents filed. PhD UT Austin.">
     <meta property="twitter:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.swadhinpradhan.com/">
+    
     <!-- Favicon - Simple green dot -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%2310b981'/></svg>">
     
@@ -86,10 +89,45 @@
         "url": "https://www.swadhinpradhan.com",
         "sameAs": [
             "https://github.com/swadhin",
-            "https://scholar.google.com/citations?user=YT4IhEIAAAAJ&hl=en"
+            "https://scholar.google.com/citations?user=YT4IhEIAAAAJ&hl=en",
+            "https://www.linkedin.com/in/swadhin-pradhan-32b51613/"
         ],
         "email": "swadhinjeet88@gmail.com",
         "image": "https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg"
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.swadhinpradhan.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Wireless Sensing Research",
+                "item": "https://www.swadhinpradhan.com/#sensing"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "GenAI for Networks",
+                "item": "https://www.swadhinpradhan.com/#genai"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Indoor Air Quality",
+                "item": "https://www.swadhinpradhan.com/#airquality"
+            }
+        ]
     }
     </script>
     
@@ -385,7 +423,7 @@
         <!-- Hero Section -->
         <header class="hero">
             <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                <img src="photos/swadhin_o3.jpeg" alt="Swadhin Pradhan" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--card-border);">
+                <img src="photos/swadhin_o3.jpeg" alt="Swadhin Pradhan - ML Tech Lead at Cisco, PhD UT Austin, Physical AI and GenAI researcher" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--card-border);">
                 <div>
                     <h1 style="margin-bottom: 0.1rem;">Swadhin Pradhan</h1>
                     <p class="subtitle" style="margin-bottom: 0;">ML Tech Lead @ Cisco</p>
@@ -397,12 +435,10 @@
                 <a href="cvs/swadhin_cv_2026.pdf">📄 CV</a>
             </nav>
             
-            <!-- Recent Highlights - For recruiters and quick scanning -->
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--text-muted);">
-                <span><strong style="color: var(--accent);">15+</strong> Papers (MobiCom, CHI, SenSys)</span>
-                <span><strong style="color: var(--accent);">10+</strong> US Patents Filed</span>
-                <span><strong style="color: var(--accent);">4+</strong> Cisco Products Shipped</span>
-            </div>
+            <!-- Short Bio - For recruiters and collaborators -->
+            <p style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px dashed var(--card-border); font-size: 0.95rem; color: var(--text); line-height: 1.7; max-width: 700px; text-align: center;">
+                I build AI systems that perceive and act in the physical world. My work spans wireless sensing using RFID, mmWave, and acoustics, GenAI for network intelligence, and indoor air quality monitoring. I hold a PhD from UT Austin, have published 15+ papers at MobiCom, CHI, SenSys, and NeurIPS, filed 10+ US patents, and shipped multiple AI products at Cisco.
+            </p>
         </header>
         
         <!-- Tabs -->
@@ -415,7 +451,7 @@
         <!-- Tab: Sensing -->
         <section class="tab-content active" id="sensing" role="tabpanel" aria-label="Wireless Sensing Research">
             <article class="idea">
-                <strong>Building multi-modal sensing systems.</strong> Using RFID, acoustic signals, and mmWave radar, we build multimodal sensing systems that track motion, measure temperature, recognize gestures, and authenticate users—enabling embodied intelligence without cameras or wearables. This is for the next generation of robotics and smart environments.
+                <strong>Building multi-modal intelligent sensing systems.</strong> Using RFID, acoustic signals, and mmWave radar, we build multimodal sensing systems that track motion, measure temperature, recognize gestures, and authenticate users—enabling embodied intelligence without cameras or wearables. This is for the next generation of robotics and smart environments.
             </article>
             
             <div class="projects">
@@ -435,7 +471,7 @@
                         <span class="project-name">MARS</span>
                         <span class="badge badge-ipsn">IPSN'24</span>
                     </div>
-                    <p class="project-hook">Track multiple people's activities using mmWave radar</p>
+                    <p class="project-hook">Track multiple people's activities using mmWave</p>
                     <div class="project-links">
                         <a href="papers/ipsn24_revision_final.pdf">PDF</a>
                         <a href="ppts/mars.pptx">PPT</a>
@@ -486,7 +522,7 @@
                 
                 <article class="project">
                     <div class="project-header">
-                        <span class="project-name">Revolt</span>
+                        <span class="project-name">REVOLT</span>
                         <span class="badge badge-ubicomp">UbiComp'19</span>
                     </div>
                     <p class="project-hook">Stop voice replay attacks on smart assistants</p>
@@ -544,7 +580,7 @@
         <!-- Tab: GenAI for Networks -->
         <section class="tab-content" id="genai" role="tabpanel" aria-label="GenAI for Networks">
             <article class="idea">
-                <strong>GenAI for real-world systems.</strong> Networks generate massive multimodal data—packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. From Large Packet Models to agentic diagnostics—shipping AI products at scale.
+                <strong>GenAI for real-world systems.</strong> Networks generate massive multimodal data—packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. We are shipping AI products at scale, from foundational generative models for networks to agentic diagnostics.
             </article>
             
             <ul class="industry-list">
@@ -610,6 +646,7 @@
                     <div class="project-links">
                         <a href="papers/NeurIPS-2024-indoor-air-quality-dataset-with-activities-of-daily-living-in-low-to-middle-income-communities-Paper-Datasets_and_Benchmarks_Track.pdf">PDF</a>
                         <a href="bibs/iaq_neurips.bib">BibTeX</a>
+                        <a href="https://github.com/prasenjit52282/dalton-dataset" target="_blank">Dataset</a>
                     </div>
                 </article>
                 
@@ -680,8 +717,7 @@
         </section>
         
         <footer>
-            <p>PhD in Computer Science, UT Austin · Previously at NEC Labs America</p>
-            <p style="margin-top: 0.5rem;">© 2026 Swadhin Pradhan</p>
+            <p>© 2026 Swadhin Pradhan</p>
         </footer>
         
         <!-- Structured summary for LLM indexing - visible to crawlers, semantically hidden -->
