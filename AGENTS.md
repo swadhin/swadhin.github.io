@@ -101,7 +101,7 @@ One-line hook describing the work
 > "Building multi-modal intelligent sensing systems. Using RFID, acoustic signals, and mmWave radar, we build multimodal sensing systems that track motion, measure temperature, recognize gestures, and authenticate users—enabling embodied intelligence without cameras or wearables. This is for the next generation of robotics and smart environments."
 
 ### Projects (in order)
-1. MIRO (SenSys'26) - "Occupational safety monitoring using multi-radar re-ID"
+1. MIRO (SenSys'26) - "Worker safety using multi-radar re-identification"
 2. MARS (IPSN'24) - "Track multiple people's activities using mmWave"
 3. TIMU (MobiHoc'21) - "Sense ball rotation using passive RFID tags"
 4. RTSense (SenSys'20) - "Battery-free temperature sensing with RFID"
@@ -158,7 +158,7 @@ One-line hook describing the work
 > "Building intelligent mobile systems. From password-free authentication using daily activities to understanding notification behaviors and optimizing mobile sensing, we explore how smartphones can become smarter, more secure, and energy-efficient through context-aware computing."
 
 ### Projects (in order)
-1. Notification (INFOCOM'17) - "Understanding and predicting mobile notification responses"
+1. Notification (INFOCOM'17) - "Understanding and predicting mobile notifications"
 2. ActivPass (CHI'15) - "Password-free authentication using daily activities"
 3. OpTen (COMSNETS'15) - "Optimizing energy consumption in mobile sensing"
 4. RetailGuide (COMSNETS'14) - "Indoor navigation using landmarks and phone sensors"
