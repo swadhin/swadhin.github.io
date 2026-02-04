@@ -1,389 +1,723 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
 <head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style type="text/css" media="screen">
-  body {
-    font-family: charis_silregular, Georgia, serif;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #222;
-    background-color: #eee;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-}
-
-h1, h2 {
-    font-family: andikaregular, Verdana, Geneva, sans-serif;
-    font-weight: normal;
-}
-
-ul {
-    padding: 0;
-}
-
-nav ul, ul.entries {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav li a {
-  float: left;
-  margin-right: 20px; 
-  margin-top: 10px;
-  margin-bottom: 10px; 
-}
-
-div.container {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-footer {
-  font-size: 0.65em;
-  text-align: center;
-}
-.bib-inproceedings, .bib-article {
-    margin-bottom: .7em;
-}
-
-/* p { */
-/*     -webkit-hyphens: auto; */
-/*     -moz-hyphens: auto; */
-/*     -ms-hyphens: auto; */
-/*     -o-hyphens: auto; */
-/*     hyphens: auto; */
-/*     word-wrap: break-word; */
-/* } */
-
-</style>
-<title>Swadhin Pradhan</title>
-
-<meta name="description" content="Personal Website of Dr. Swadhin Pradhan, Machine Learning Engineer, Cisco Meraki, USA">
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-59387109-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags - Optimized for recruiters, LLMs, and search engines -->
+    <title>Swadhin Pradhan | ML Tech Lead & Researcher | Physical AI, Sensing, GenAI</title>
+    <meta name="title" content="Swadhin Pradhan | ML Tech Lead & Researcher | Physical AI, Sensing, GenAI">
+    <meta name="description" content="ML Tech Lead at Cisco. Expert in physical AI, multimodal sensing (RFID, mmWave radar, acoustic), embodied intelligence, and GenAI/LLM for real-world systems. 15+ publications at MobiCom, CHI, SenSys. 10+ US patents filed. PhD UT Austin. Building AI that perceives and acts in the physical world.">
+    <meta name="keywords" content="Swadhin Pradhan, ML Engineer, AI Engineer, Physical AI, Multimodal AI, Embodied AI, Sensor Fusion, Wireless Sensing, RFID Sensing, mmWave Radar, Acoustic Sensing, GenAI, LLM, Large Language Models, Robotics, IoT, Machine Learning, Deep Learning, Computer Vision, Cisco, UT Austin, MobiCom, CHI, SenSys, Research Scientist, Tech Lead">
+    <meta name="author" content="Swadhin Pradhan">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://www.swadhinpradhan.com/">
+    <meta property="og:title" content="Swadhin Pradhan | ML/AI Engineer | Physical AI & GenAI">
+    <meta property="og:description" content="ML Tech Lead at Cisco. Expert in physical AI, multimodal sensing, and GenAI. 15+ papers, 10+ patents filed. Building AI that perceives the physical world.">
+    <meta property="og:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.swadhinpradhan.com/">
+    <meta property="twitter:title" content="Swadhin Pradhan | Physical AI & GenAI Engineer">
+    <meta property="twitter:description" content="ML Tech Lead @ Cisco. Physical AI, multimodal sensing, GenAI. 15+ papers, 10+ patents filed. PhD UT Austin.">
+    <meta property="twitter:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="imgs/dp.png">
+    
+    <!-- Schema.org JSON-LD - Enhanced for LLM indexing and recruiter discovery -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Swadhin Pradhan",
+        "givenName": "Swadhin",
+        "familyName": "Pradhan",
+        "jobTitle": "ML Tech Lead",
+        "description": "ML/AI Engineer specializing in physical AI, multimodal sensing, and GenAI. Expert in building AI systems that perceive and interact with the physical world using wireless signals, radar, and acoustic sensing. Leading GenAI initiatives for network intelligence at Cisco.",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Cisco",
+            "url": "https://www.cisco.com"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Texas at Austin",
+            "url": "https://www.utexas.edu"
+        },
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "PhD",
+            "about": "Computer Science"
+        },
+        "knowsAbout": [
+            "Physical AI",
+            "Multimodal AI", 
+            "Embodied Intelligence",
+            "Sensor Fusion",
+            "Wireless Sensing",
+            "RFID Sensing",
+            "mmWave Radar",
+            "Acoustic Sensing",
+            "Machine Learning",
+            "Deep Learning",
+            "GenAI",
+            "Large Language Models",
+            "LLM",
+            "Robotics Perception",
+            "IoT",
+            "Edge AI",
+            "Real-time Systems"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Machine Learning Engineer",
+            "skills": "Physical AI, Multimodal Sensing, GenAI, LLM, Sensor Fusion, Deep Learning, PyTorch, TensorFlow"
+        },
+        "award": [
+            "15+ publications at top venues (MobiCom, CHI, SenSys, UbiComp)",
+            "10+ US patents filed in GenAI and wireless sensing"
+        ],
+        "url": "https://www.swadhinpradhan.com",
+        "sameAs": [
+            "https://github.com/swadhin",
+            "https://scholar.google.com/citations?user=YT4IhEIAAAAJ&hl=en"
+        ],
+        "email": "swadhinjeet88@gmail.com",
+        "image": "https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg"
+    }
+    </script>
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-muted: #666;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --card-bg: #fff;
+            --card-border: #e5e7eb;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --tab-active: #2563eb;
+            --tab-inactive: #6b7280;
+            --badge-mobicom: #3b82f6;
+            --badge-chi: #10b981;
+            --badge-sensys: #f59e0b;
+            --badge-ubicomp: #8b5cf6;
+            --badge-ipsn: #ef4444;
+            --badge-other: #6b7280;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111827;
+                --text: #f9fafb;
+                --text-muted: #9ca3af;
+                --card-bg: #1f2937;
+                --card-border: #374151;
+                --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            }
+        }
+        
+        /* Reset & Base */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+        
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .hero-links a:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 0.6rem 1.2rem;
+            background: transparent;
+            border: 2px solid var(--card-border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--tab-inactive);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .tab-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Idea Section */
+        .idea {
+            background: linear-gradient(135deg, var(--card-bg), var(--bg));
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        .idea strong {
+            color: var(--accent);
+        }
+        
+        /* Project Grid */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+        
+        /* Project Card */
+        .project {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            transition: all 0.2s;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .project:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-color: var(--accent);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-mobicom { background: var(--badge-mobicom); }
+        .badge-chi { background: var(--badge-chi); }
+        .badge-sensys { background: var(--badge-sensys); }
+        .badge-ubicomp { background: var(--badge-ubicomp); }
+        .badge-ipsn { background: var(--badge-ipsn); }
+        .badge-mobihoc { background: #ec4899; }
+        .badge-infocom { background: #06b6d4; }
+        .badge-jcss { background: #84cc16; }
+        .badge-other { background: var(--badge-other); }
+        .badge-upcoming { background: #f97316; }
+        
+        .project-hook {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .project-links a {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--bg);
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        
+        .project-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* Industry Section */
+        .industry-list {
+            list-style: none;
+        }
+        
+        .industry-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .industry-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .industry-list strong {
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.5rem; }
+            .tabs { gap: 0.3rem; }
+            .tab-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+            .projects { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-   <nav role="navigation">
-       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#papers">Papers</a></li>
-        <li><a href="#education">Edu</a></li>
-	<li><a href="cvs/swadhin_cv_2024.pdf">CV</a></li>
-	<!-- <li><a href="/~swadhin/index.html#ramblings">Ramblings</a></li> -->
-	<li><a href="#personal">Personal</a></li>
-      </ul>
-   </nav>
-
-<br/>
-<br/>
-
-<hr/>
-<p><img src="photos/swadhin_o3.jpeg" alt="Swadhin Pradhan" width="300px" height="400px" align="left" style="margin: 10px 20px 10px 0px"> <h2>Swadhin Pradhan</h2>
-I currently work at Cisco Meraki as a Research engineer, where we are trying to bring machine-learning driven intelligence  across Meraki's networking products. Previously, I graduated in <a href="http://www.cs.utexas.edu/" title="Dept of CS, The University of Texas at Austin, USA">Computer Science</a> from <a href="http://www.utexas.edu/" title="UT Austin, USA">University of Texas at Austin</a> with a PhD.</p>
-<p>My research is focused on wireless sensing, machine learning, and internet-of-things(IoT). Recently, I have started working on building  Large Generative Model (e.g., LLM) for X type data where X type is not {Text, Image, Audio or Video}.</p> 
-<p><b>Email</b>: swadhinjeet88 [at] gmail [dot] com.</p>
-</br>
-<!--
-<p><b><font color="red">I am in the job market, looking for research oriented positions (<a href="pradhan_swadhin_cv.pdf">CV</a> and <a href="swadhin_resume.pdf">Resume</a>).</font></b></p>
--->
-<hr/>
-<a name="updates"></a>
-<h2>Recent Updates</h2>
-<ul>
-	<li><a href="https://ieeexplore.ieee.org/abstract/document/10577316">MARS</a> got accepted at <a href="https://ipsn.acm.org/2024/program.html#session5"><strong>IPSN 2024</strong></a>. This paper provides a framework to show multi-user tracking via mmWave sensing.</li>
-	<li><a href="https://arxiv.org/pdf/2407.14393">DALTON<a> just got published in <a href="https://dl.acm.org/journal/acmjcss"><strong>ACM JCSS</strong></a> and was just presented in the sister conference <a href="https://compass.acm.org/full-program/">ACM COMPASS</a> at IIIT Delhi, India. This paper provides an in-depth study on indoor air pollution in India.</li>
-	<!--<li>Our paper got accepted at <a href="https://www.sigmobile.org/mobihoc/2021/"><strong>ACM Mobihoc 2021</strong></a>. This paper exploits polarization change of commercial passive RFID tags to track the rotation of a moving ball.</li>
-<li>Our paper got accepted at <a href="http://sensys.acm.org/2020/program/"><strong>ACM SenSys 2020</strong></a>. This paper exploits impedance change to measure temperature change using commercial passive RFID tags.</li>
-	<li>Recently gave talks at UCSD, UMichigan, MSR India, Vijna Labs, Cisco Meraki, IIT Kharagpur, IIIT Delhi, IISc Bangalore, and IIT Patna  about <strong>On building interactive and secure smart spaces</strong>.</li>  
-<li>Our paper got accepted at <a href="https://imwut.acm.org"><strong>IMWUT</strong></a> journal issue 3 and will be appearing in <a href="http://ubicomp.org/ubicomp2019/">UbiComp 2019</a>. This paper shows how we can prevent voice replay attack in voice assistants by exploting voice and wireless signature together.</li>
-<li>Our paper got accepted at <a href="https://sigmobile.org/mobicom/2019/"><strong>ACM MobiCom 2019</strong></a>. This paper utilizes machine learning to overcome the limitation of signal processing techniques to enable room-scale acoustic device-free hand-motion tracking.</li>
-
-
-<li>I was one of the recepients of <a href="https://gradschool.utexas.edu/finances/fellowships/graduate-school/continuing-fellowships">UT Austin Graduate School Continuing Fellowship</a>, 2019. Thank you <a href="https://gradschool.utexas.edu/">UT</a> :) </li>
-
-<li>Our paper got accepted at <a href="https://imwut.acm.org"><strong>IMWUT</strong></a> journal issue 2 and will be appearing in <a href="http://ubicomp.org/ubicomp2018/">UbiComp 2018</a>. This paper shows how we can create indoor maps using acoustic signal emitted from the smartphone.</li>
-<li>I will be co-chairing <a href="https://ubwins.cse.buffalo.edu/s32018/"><strong>ACM S3</strong></a> workshop, in conjuction with <a href="https://sigmobile.org/mobicom/2018/"><strong>ACM Mobicom 2018</strong></a>, which will be held at New Delhi, India. Please consider submitting.</li>
-<li>Our paper got accepted at <strong>WPA 2017</strong> (4th International workshop on Physical Analytics) co-located with MobiSys 2017. In this paper, we present a RFID based seamless check-out system for retail stores (circa <a href="https://www.youtube.com/watch?v=NrmMk1Myrxc">Amazon Go</a>). This is a joint work with folks at NEC Labs America, Princeton.</li>
-<li>Our paper got accepted at <strong>WPA 2017</strong> (4th International workshop on Physical Analytics) co-located with MobiSys 2017. In this paper, we present a RFID based seamless check-out system for retail stores (circa <a href="https://www.youtube.com/watch?v=NrmMk1Myrxc">Amazon Go</a>). This is a joint work with folks at NEC Labs America, Princeton.</li>
-
-<li>Currently working to build a smarter notification manager. Project detial is found <a href="notification_project.html">here</a>.</li>
-<li>Worked closely with two Austin startups: <a href="https://athletebuilder.com/">AthleteBuilder</a> (<i>Netflix</i> for Sports Coaching and Learning) and <a href="http://asserosecurityinc.com/">Assero Security</a> (A Security Audit firm for Small and Medium Businesses) as a <i><a href="https://www.mccombs.utexas.edu/Centers/Texas-Venture-Labs">Texas Venture Labs</a> Associate</i>.</li>
-
-<li>Our recent paper <b>ActivPass</b> is covered by <a href="http://www.technologyreview.com/news/536921/smartphone-secrets-may-be-better-than-a-password/">MIT Technological Review</a>.</li>
--->
-
-</ul>
-<hr/>
-<a name="papers"></a>
-<h2>Publications</h2>
-<!-- bib2html:mypapers.bib:mypapers:mybibs -->
-<ul>
-
-
-<li><div class="bib-inproceedings">
-    <strong>Exploiting Air Quality Monitors to Perform Indoor Surveillance: Academic Setting</strong> </br>
-    P.&nbsp;Karmakar, <b>S.&nbsp;Pradhan</b>, and S.&nbsp;Chakraborty.</br>
-    <span class="caps">ACM MobileHCI</span>&nbsp;&#8216;24 (Late Breaking Works).</br>
-    [<a href="papers/paper_mobilehci.pdf"><span class="caps">PAPER PDF</span></a>]&nbsp;[<a href="ppts/ppt_mobilehci.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/mobilhci_dalton.bib"><span class="caps">BIB</span></a>]&nbsp;[<a href="https://www.youtube.com/watch?v=gtel1TSUXNE"><span class="caps">VIDEO</span></a>]
-
-<li><div class="bib-inproceedings">
-    <strong>Exploring Indoor Air Quality Dynamics in Developing Nations: A Perspective from India</strong> </br>
-    P.&nbsp;Karmakar, <b>S.&nbsp;Pradhan</b>, and S.&nbsp;Chakraborty.</br>
-    <span class="caps">ACM Compass</span>&nbsp;&#8216;24 (archived in <a href="https://dl.acm.org/doi/10.1145/3685694">ACM JCSS</a>).</br>
-    [<a href="papers/dalton_JCSS_final.pdf"><span class="caps">PAPER PDF</span></a>]&nbsp;[<a href="papers/dalton_compass_poster_paper.pdf"><span class="caps">POSTER</span></a>]&nbsp;[<a href="ppts/dalton_compass24_presentation.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/dalton.bib"><span class="caps">BIB</span></a>]&nbsp;[<a href="https://youtu.be/sOo6uAFmQPY"><span class="caps">VIDEO</span></a>]
-
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>Continuous Multi-user Activity Tracking via Room-Scale mmWave Sensing</strong> </br>
-    A.&nbsp;Sen, A.&nbsp;Das, <b>S.&nbsp;Pradhan</b>, and S.&nbsp;Chakraborty.</br>
-    <span class="caps">ACM/IEEE IPSN</span>&nbsp;&#8216;24.</br>
-    [<a href="papers/ipsn24_revision_final.pdf"><span class="caps">PAPER PDF</span></a>]&nbsp;[<a href="papers/demo_mars.pdf"><span class="caps">DEMO</span></a>]&nbsp;[<a href="ppts/mars.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/mars.bib"><span class="caps">BIB</span></a>]&nbsp;[<a href="https://github.com/arghasen10/mars"><span class="caps">CODE</span></a>]
-
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>Rotation Sensing Using Passive RFID Tags</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, S.&nbsp; Li, and L.&nbsp;Qiu.</br>
-    <span class="caps">ACM MobiHoc</span>&nbsp;&#8216;21.</br>
-    [<a href="papers/timu.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/timu.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/timu.bib"><span class="caps">BIB</span></a>]
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>RTSense: Passive RFID based Temperature Sensing</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, and L.&nbsp;Qiu.</br>
-    <span class="caps">ACM SenSys</span>&nbsp;&#8216;20.</br>
-    [<a href="papers/rtsense.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/rtsense.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/rtsense.bib"><span class="caps">BIB</span></a>]</br>
-    <i>Press Coverage</i> : <a href="https://www.cs.utexas.edu/news/2021/exploring-passive-rfid-tag-use-sensory-technology">Exploring Passive RFID Tag Use For Sensory Technology</a>
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>RNN-based Room Scale Hand Motion Tracking</strong> </br>
-    W.&nbsp;Mao, M.&nbsp;Wang, W.&nbsp;Sun, L.&nbsp;Qiu, <b>S.&nbsp;Pradhan</b>, and Y.&nbsp;Chen.</br>
-    <span class="caps">ACM MOBICOM</span>&nbsp;&#8216;19.</br>
-    [<a href="papers/rtrack.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/rtrack_slides.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/rtrack.bib"><span class="caps">BIB</span></a>]
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>Combating Replay Attacks Against Voice Assistants</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, W.&nbsp;Sun, G.&nbsp;Baig, and L.&nbsp;Qiu.</br>
-    <span class="caps">ACM UBICOMP</span>&nbsp;&#8216;19 (also in ACM IMWUT</span>&nbsp;Journal Issue 3, 2019).</br>
-    [<a href="papers/revolt_ubicomp_swadhin.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/revolt-ubicomp19-swadhin-final-presentation.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/revolt.bib"><span class="caps">BIB</span></a>]</br>
-    <i>Press Coverage</i> : <a href="./SmartHomes-Q2-2020_v3.pdf">IEEE Pervasive Computing Magazine</a>
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>Smartphone-based Acoustic Indoor Space Mapping</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, G.&nbsp;Baig, W.&nbsp;Mao, L.&nbsp;Qiu, G.&nbsp;Chen, and B.&nbsp;Yang.</br>
-    <span class="caps">ACM UBICOMP</span>&nbsp;&#8216;18 (Appeared in ACM IMWUT</span>&nbsp;Journal Issue 2, June, 2018).</br>
-    [<a href="papers/a75-Pradhan.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/sams-ubicomp18-swadhin.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/sams.bib"><span class="caps">BIB</span></a>]
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>RIO: A Pervasive RFID-based Touch Gesture Interface</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, E.&nbsp;Chai, K.&nbsp;Sundaresan, L.&nbsp;Qiu, A.&nbsp;Khojastepour, and S.&nbsp;Rangarajan.</br>
-    <span class="caps">ACM MOBICOM</span>&nbsp;&#8216;17.</br>
-    [<a href="papers/rio_cameraready_mobicom17_swadhin.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/rio-mobicom17-swadhin.pdf"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/rio.bib"><span class="caps">BIB</span></a>]&nbsp;[<a href="https://www.youtube.com/watch?v=aeTs5cECrSo"><span class="caps">VIDEO</span></a>]&nbsp;[<a href="https://www.youtube.com/watch?v=sB8agKDzvbQ"><span class="caps">PRESENTATION</span></a>]
-</div></li>
-<li><div class="bib-inproceedings">
-    <strong>Konark: A RFID based system for enhancing in-store shopping experience</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, E.&nbsp;Chai, K.&nbsp;Sundaresan, S.&nbsp;Rangarajan, and L.&nbsp;Qiu.</br>
-    <span class="caps">WPA</span>&nbsp;&#8216;17, co-located with ACM MobiSys '17. </br>
-    [<a href="papers/konark_swadhin_wpa17.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/Swadhin_Pradhan_WPA_Presentation.pdf"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/konark.bib"><span class="caps">BIB</span></a>]&nbsp;[<a href="https://patents.google.com/patent/US20180307877A1/en"><span class="caps">PATENT</span></a>]
-</div></li>
-<li><div class="bib-inproceedings">
-<strong>Understanding and managing notifications</strong> </br>
-    <strong>S.&nbsp;Pradhan</strong>, L.&nbsp;Qiu, A.&nbsp;Parate, and Kyu-Han&nbsp;Kim.</br>
-    <span class="caps">IEEE INFOCOM</span>&nbsp;&#8216;17.<br/>
-    [<a href="papers/Notification_Infocom17.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/Notification_Infocom17_Swadhin.pdf"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/notification.bib"><span class="caps">BIB</span></a>]
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>ActivPass : Your Daily Activity is Your Password</strong> </br>
-    S.&nbsp;Dandapat, <strong>S.&nbsp;Pradhan</strong>, B.&nbsp;Mitra, R.&nbsp;Roy&nbsp;Choudhury, and N.&nbsp;Ganguly.</br>
-    <span class="caps">ACM CHI</span>&nbsp;&#8216;15.<br/>
-    [<a href="papers/activpass_chi_2015.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/ActivPass_CHI_2015.pdf"><span class="caps">PPT</span></a>]&nbsp;[<a href="https://youtu.be/hssYkAKIZpE">VIDEO</a>]&nbsp;[<a href="bibs/activpass.bib"><span class="caps">BIB</span></a>]<br/>
-    <i>Press Coverage</i> : <a href="http://www.technologyreview.com/news/536921/smartphone-secrets-may-be-better-than-a-password/">MIT Technological Review</a>, <a href="http://www.americanbanker.com/news/bank-technology/authentication-advances-may-finally-kill-passwords-and-pins-1074298-1.html?zkPrintable=1&nopagination=1">American Banker</a>, <a href="http://www.bostonglobe.com/ideas/2015/05/12/one-simple-solution-for-online-passwords/WNeYN6HrVLdobXdnEA1WsN/story.html">Boston Globe</a>, <a href="http://www.bbc.co.uk/programmes/p02q9qkx">BBC Radio</a>(skip to 26:30), <a href="https://www.youtube.com/watch?v=TP7luLVBXqg">Rajyasabha TV</a>(skip to 9:00), <a href="http://www.theguardian.com/commentisfree/2015/may/05/passwords-activpass-security-codes">The Guardian</a>, <a href="http://www.ndtv.com/offbeat/bugged-with-passwords-your-daily-activity-could-help-you-log-in-1239362">NDTV</a>, <a href="http://theweek.com/articles/552300/how-turn-embarrassing-google-searches-into-hackproof-password">The Week</a>, <a href="http://www.cheatsheet.com/technology/is-this-login-method-safer-than-your-password.html/?a=viewall">Cheatsheet</a>, <a href="http://www.digitaltrends.com/mobile/passwords-are-so-2014-questions-about-your-mobile-activity-may-improve-login-security/">Digital Trends</a>, <a href="http://www.pandasecurity.com/mediacenter/security/your-likes-in-facebook-can-be-the-passwords-of-the-future/">Pandasecurity</a>, <a href="http://news.softpedia.com/news/Researchers-Explore-the-Feasibility-of-Activity-Based-Passwords-480343.shtml">Softpedia</a>, <a href="http://chicagoinno.streetwise.co/2015/04/30/internet-security-replacing-passwords-with-cell-phone-history/">Chicago News</a>, <a href="http://www.elconfidencial.com/tecnologia/2015-04-29/activpass-contrasenas-ciberseguridad_784561/">El Confidencial</a>, <a href="http://www.panorama.it/mytech/sicurezza/addio-password-questionari/">Panaroma</a>, <a href="http://minfin.com.ua/2015/04/30/6953703/">Minfin</a>, <a href="http://www.carlow-nationalist.ie/2015/05/05/company-launches-new-system-to-remember-passwords/">The Nationalist</a>, <a href="http://www.business-standard.com/article/news-ians/activity-record-better-password-iit-engineers-115043000528_1.html">Business Standard</a>, <a href="http://www.business-standard.com/article/news-ians/bugged-with-passwords-your-daily-activity-could-help-you-log-in-115110201404_1.html">Business Standard</a>,<a href="http://netindia123.com/netindia/showdetails.asp?id=2716548&n_date=20151102&cat=Science">NetIndia</a>,<a href="http://www.thehindu.com/sci-tech/forget-passwords-its-question-time/article7177407.ece">The Hindu</a>, <a href="http://bharatpress.com/2015/04/30/activity-record-better-password-iit-engineers/">Bharat Press</a> ...
-</div></li>
-
-<li><div class="bib-inproceedings">
-    <strong>Aggregating Inter-App Traffic to Optimize Cellular Radio Energy Consumption on Smartphones</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, S.&nbsp;Dandapat, N.&nbsp;Ganguly, B.&nbsp;Mitra, and P.&nbsp;De.</br>
-    <span class="caps">COMSNETS</span>&nbsp;&#8216;15.</br>
-    [<a href="papers/opten_comsnets_2015.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/opten_comsnets_2015.pdf"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/energy.bib"><span class="caps">BIB</span></a>]
-</div></li>
-
-<li><div class="bib-inproceedings"> 
-    <strong>(Stable) virtual landmarks: Spatial dropbox to enhance retail experience</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, S.&nbsp;Dandapat, N.&nbsp;Ganguly, and B.&nbsp;Mitra.</br>
-    <span class="caps">COMSNETS</span>&nbsp;&#8216;14.</br>
-    [<a href="papers/retailguide_comsnets_2014.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/retailguide_comsnets_2014.pdf"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/retailguide.bib"><span class="caps">BIB</span></a>]
-</div></li>
-
-<li><div class="bib-inproceedings"> 
-    <strong>Sprinkler: Distributed Content Storage for Just-in-Time Streaming</strong> </br>
-    S.&nbsp;Dandapat, <b>S.&nbsp;Pradhan</b>, R.&nbsp;Roy&nbsp;Choudhury, and N.&nbsp;Ganguly.</br>
-    <span class="caps">CellNet</span>&nbsp;&#8216;13, in Conjunction with MobiSys&nbsp;&#8216;13.</br>
-    [<a href="papers/sprinkler_cellnet_2013.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/sprinkler_cellnet_2013.pdf"><span class="caps">PPT</span></a>]&nbsp;[<a href="bibs/sprinkler.bib"><span class="caps">BIB</span></a>]
-</div></li>
-
-<li><div class="bib-inproceedings"> 
-    <strong>Offloading Cellular Traffic</strong> </br>
-    S.&nbsp;Dandapat, <b>S.&nbsp;Pradhan</b>, and N.&nbsp;Ganguly.</br>
-    <span class="caps">IBM I-Care</span>&nbsp;&#8216;13.</br>
-    [<a href="papers/offloading_icare_2013.pdf"><span class="caps">PDF</span></a>]
-</div></li>
-</ul>
-<hr/>
-
-
-<h2>Patents</h2>
-<ul>
-<li><div class="bib-inproceedings">
-     <strong>Battery-free touch-aware user input using RFID tags</strong> </br>
-    E.&nbsp;Chai, <b>S.&nbsp;Pradhan</b>, K.&nbsp;Sundaresan, A.&nbsp;Khojastepour, and S.&nbsp;Rangarajan.</br>
-    <span class="caps">US Patent App No.</span>&nbsp; 20180157876.</br>
-    [<a href="http://www.freepatentsonline.com/y2018/0157876.html"><span class="caps">Link</span></a>]
-</div></li>
-<li><div class="bib-inproceedings">
-    <strong>Mobile Device Notification Scheduling</strong> </br>
-    <b>S.&nbsp;Pradhan</b>, A.&nbsp;Parate, K.&nbsp;Kim, and J.&nbsp;Cook.</br>
-    <span class="caps">US Patent App No.</span>&nbsp; WO2017131748.</br>
-    [<a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2017131748"><span class="caps">Link</span></a>]
-</div></li>
-</ul>
-
-<hr/>
-<!--
-<hr/>
-<h2>Teaching Assistant</h2>
-<p>Last Spring, I was a TA of <a href="">Natural Language Processing (CS 388)</a>, which is being taught by <a href="https://www.cs.utexas.edu/~mooney/">Prof. Ray Mooney</a>.</br>
-</br>
-<strong>Previous Engagements</strong>
-<ul>
-<li>Computer Networks (CS 356), Fall 2015.</li>
-<li>Big Data Programming (CS 378), Spring 2015.</li>
-<li>Big Data Programming (CS 378), Fall 2014.</li>
-</ul>
-
-<h2>Courses Taken</h2>
-<ul>
-<li>Introduction to Mathematical Logic</li>
-<li>Program Verification</li>
-<li>Numerical Analysis&nbsp;:&nbsp;Linear Algebra</li>
-<li>Formal Semantics &amp; Verification</li> 
-<li>Texas Venture Labs Practicum</li>
-<li>Natural Language Processing</li>
-<li>Wireless Networks</li>
-<li>Dependable Computing Systems</li>
-</ul>
-<hr/>
--->
-<a name="education"></a>
-<h2>Education</h2>
-<ul>
-<li><b>PhD in Computer Science</b></br>
-The University of Texas at Austin, USA, 2014 - 2020.</br>
-<i>Thesis&nbsp;:&nbsp;</i><b>Battery-free Wireless Sensing and Beyond.</b></br>
-[<a href="papers/PRADHAN-DISSERTATION-2020.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/swadhin_defense_talk.pptx"><span class="caps">PPT</span></a>]&nbsp;[<a href="https://repositories.lib.utexas.edu/handle/2152/115851"><span class="caps">LIB</span></a>]</li></br>
-<li><b>MS in Computer Science & Engineering</b></br>
-Indian Institute of Technology Kharagpur, India, 2012 - 2014.</br>
-<i>Thesis&nbsp;:&nbsp;</i><b>Improving Localization and Energy Efficiency of Smartphone Applications.</b></br>
-[<a href="papers/thesis.pdf"><span class="caps">PDF</span></a>]&nbsp;[<a href="ppts/swadhin_defense.pdf"><span class="caps">PPT</span></a>]</li></br>
-<li><b>B.E. in Information Technology</b></br>
-Jadavpur University, India, 2007 - 2011.</br>
-University Gold Medalist.</li>
-</ul>
-<!--
-<hr/>
-
-<h2>CV and Resume</h2>
-<p>My CV is found <a href="pradhan_swadhin_cv.pdf"><b>Here</b></a> and also my resume is <a href="swadhin_resume.pdf"><b>here</b></a>. Latex Source Code of the CV is also found <a href="swadhin.cv.tar.gz"><b>Here</b></a>.</p>
-<hr/>
-<a name="contact"></a>
-<h2>Contact information </h2>
-<p><b>Email:</b> swadhin (AT) cs (dot) utexas (DOT) edu or swadhin (AT) utexas (DOT) edu. </br>
-<b>Office: </b> GDC 6.802D, UTAusin. </br>
-<b>Phone: </b> +1-737-222-8807.
-</p>
--->
-
-<!--
-<hr/>
-<a name="ramblings"></a>
-<h2>Ramblings</h2>
-<ul>
-<li>Typical CS conference <a href="http://bit.ly/2AfPxs1">deadlines</a>.</li>
-<li>Un-official <a href="http://bit.ly/2hXFEqC">guidelines</a> for UTCS PhD Students' Administritive Chores.</li>
-<li>Books discussed in Spring 2015 <a href="http://www.cs.utexas.edu/~mooney/cs388/">NLP class</a> of <a href="http://www.cs.utexas.edu/~mooney/">Prof. Ray Mooney</a> can be found <a href="books_nlp_mooney.html">here.</a></li>
-<li>Tidbits discussed in Spring 2015 <a href="http://www.cs.utexas.edu/~mooney/cs388/">NLP class</a> of <a href="http://www.cs.utexas.edu/~mooney/">Prof. Ray Mooney</a> can be found <a href="tidbits_nlp_mooney.html">here.</a></li>
-<li>An interesting <a href="http://debarghyadas.com/reads/">list</a> compiled by Debarghya Das.</li>
-<li>A commendable collection of advice gems can be found <a href="http://blizzard.cs.uwaterloo.ca/keshav/wiki/index.php/Advice">here</a> and an important <a href="http://www.slideshare.net/cameraculture/how-to-give-a-good-talk">suggestion</a>.</li>
-<li>Another great collection of advices for graduate students can be found <a href="http://synrg.csl.illinois.edu/links.php">here.</a></li>
-<li>Prof. David Patterson's <a href="ppts/BadCareer7.ppt">presentation</a> about being a successful CS Systems researcher.</li>
-<li><a href="http://www.cse.iitb.ac.in/~uday/">Prof. Uday Khedker</a> on <a href="http://www.cse.iitb.ac.in/~uday/soft-copies/what-is-research-part-I.pdf">presenting research</a>, <a href="http://www.cse.iitb.ac.in/~uday/soft-copies/NewPresentation.pdf">giving talk</a>, and <a href="http://www.cse.iitb.ac.in/~uday/soft-copies/writing-a-good-paper.pdf">paper writing</a>.</li>
-<li><a href="http://alltrails.com/us/texas/austin">Things</a> to do in Austin.</li> 
-</ul>
--->
-
-<hr/>
-<a name="personal"></a>
-<h2>Personal</h2>
-<ul>
-<!-- 
-<li>Check out this independent Bengali creative platform named <a href="https://www.swadhindol.com/">Swadhin Dol</a>. It currently operates in the form of a <a href="https://www.youtube.com/c/SwadhinDol">youtube channel</a>. The mission statement of this organization: <p>We are a platform for counter culture music that is in the periphery of the mainstream culture of West Bengal. Not only Bengali songs but also songs from Bengal are celebrated here. Songs in Hindi, Oriya, Bhojpuri, English, Bengali with various expressions and pronunciations are being showcased here. For the time being, the songs of Bangla Rap are predominant. The goal is to make a place for new artists. Now the means are limited, but in the future, regardless of the mainstream support, the group wants to become an alternative independent platform of Bengali music.</p></li>
-<li>Please check out our <a href="readinggroup.html">reading group</a>.</li>
--->
-<li>A <a href="https://docs.google.com/document/d/1bgCHudpXzS64BA5tZT2u7ngntlF-MaVKj6A3LtqtLIw/edit?usp=sharing">list</a> of new age Indian Movie Directors compiled by me.</li>
-<li>My top 10 Movie <a href="http://www.imdb.com/list/ls000058866/">list.</a></li>
-<li>My 500px <a href="https://500px.com/swadhinpradhan">profile.</a></li>
-<li>My GitHub <a href="https://github.com/swadhin/">link.</a></li> 
-<li>A <a href="https://www.youtube.com/playlist?list=PLBqRZCvmSR4uKWS_eC8Z1RjDKsrCSYmnu">glimpse</a> of Bengali songs I like.</li>
-<li>One <a href="docs/Na_Valo_Laga_Swadhin_Pradhan.pdf">sample</a> of my ineptitude to write Bengali poetry.</li>
-</ul>
-<!--
-<hr/>
-<h2>Check out my <a href="http://cse.iitkgp.ac.in/~swadhinp/" title="Personal Website">Previous Personal Homepage</a></h2>
-<p>It’s my previous website containing more information.</p>
-<hr>
-<h2>Try Out : <a href="cs378_format_checker.html" title="Personal Website">Big Data Format Checker</a></h2>
-<p>Please try out before submitting</p>
--->
-
- <footer>
-      <p>Last updated March 2022, Copyright: Swadhin Pradhan</p>
-    </footer>
-</div>
-
-
-<script>
-  var cb = function() {
-    var l = document.createElement('link'); l.rel = 'stylesheet';
-    l.href = 'fonts.css';
-    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-  };
-  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-            webkitRequestAnimationFrame || msRequestAnimationFrame;
-  if (raf) raf(cb);
-  else window.addEventListener('load', cb);
-</script>
-
-
-</body></html>
+    <main class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <img src="photos/swadhin_o3.jpeg" alt="Swadhin Pradhan" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--card-border);">
+                <div>
+                    <h1 style="margin-bottom: 0.1rem;">Swadhin Pradhan</h1>
+                    <p class="subtitle" style="margin-bottom: 0;">ML Tech Lead @ Cisco</p>
+                </div>
+            </div>
+            <nav class="hero-links" style="margin-top: 1rem;">
+                <a href="mailto:swadhinjeet88@gmail.com">📧 Email</a>
+                <a href="cvs/swadhin_cv_2024.pdf">📄 CV</a>
+                <a href="https://github.com/swadhin/" target="_blank" rel="noopener">💻 GitHub</a>
+                <a href="https://scholar.google.com/citations?user=YT4IhEIAAAAJ&hl=en" target="_blank" rel="noopener">🎓 Scholar</a>
+            </nav>
+            
+            <!-- Recent Highlights - For recruiters and quick scanning -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px dashed var(--card-border); font-size: 0.85rem; color: var(--text-muted);">
+                <span><strong style="color: var(--accent);">15+</strong> Papers (MobiCom, CHI, SenSys)</span>
+                <span><strong style="color: var(--accent);">10+</strong> US Patents Filed</span>
+                <span><strong style="color: var(--accent);">4+</strong> Cisco Products Shipped</span>
+            </div>
+        </header>
+        
+        <!-- Tabs -->
+        <div class="tabs" role="tablist">
+            <button class="tab-btn active" data-tab="sensing" role="tab" aria-selected="true">Wireless Sensing</button>
+            <button class="tab-btn" data-tab="genai" role="tab" aria-selected="false">GenAI for Networks</button>
+            <button class="tab-btn" data-tab="airquality" role="tab" aria-selected="false">Indoor Air Quality</button>
+        </div>
+        
+        <!-- Tab: Sensing -->
+        <section class="tab-content active" id="sensing" role="tabpanel" aria-label="Wireless Sensing Research">
+            <article class="idea">
+                <strong>Physical AI: Making machines perceive the real world.</strong> Using RFID, acoustic signals, and mmWave radar, we build multimodal sensing systems that track motion, measure temperature, recognize gestures, and authenticate users—enabling embodied intelligence without cameras or wearables. This is sensor fusion for the next generation of robotics and smart environments.
+            </article>
+            
+            <div class="projects">
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">MIRO</span>
+                        <span class="badge badge-upcoming">SenSys'26</span>
+                    </div>
+                    <p class="project-hook">Occupational safety monitoring using multi-radar re-ID</p>
+                    <div class="project-links">
+                        <span style="color: var(--text-muted); font-size: 0.75rem;">Coming soon</span>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">MARS</span>
+                        <span class="badge badge-ipsn">IPSN'24</span>
+                    </div>
+                    <p class="project-hook">Track multiple people and their activities using mmWave radar</p>
+                    <div class="project-links">
+                        <a href="papers/ipsn24_revision_final.pdf">PDF</a>
+                        <a href="ppts/mars.pptx">PPT</a>
+                        <a href="https://github.com/arghasen10/mars" target="_blank">Code</a>
+                        <a href="bibs/mars.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">TIMU</span>
+                        <span class="badge badge-mobihoc">MobiHoc'21</span>
+                    </div>
+                    <p class="project-hook">Sense ball rotation using passive RFID tags</p>
+                    <div class="project-links">
+                        <a href="papers/timu.pdf">PDF</a>
+                        <a href="ppts/timu.pptx">PPT</a>
+                        <a href="bibs/timu.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">RTSense</span>
+                        <span class="badge badge-sensys">SenSys'20</span>
+                    </div>
+                    <p class="project-hook">Battery-free temperature sensing with RFID</p>
+                    <div class="project-links">
+                        <a href="papers/rtsense.pdf">PDF</a>
+                        <a href="ppts/rtsense.pptx">PPT</a>
+                        <a href="bibs/rtsense.bib">BibTeX</a>
+                        <a href="https://www.cs.utexas.edu/news/2021/exploring-passive-rfid-tag-use-sensory-technology" target="_blank">Press</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">RTrack</span>
+                        <span class="badge badge-mobicom">MobiCom'19</span>
+                    </div>
+                    <p class="project-hook">Room-scale hand tracking using sound waves</p>
+                    <div class="project-links">
+                        <a href="papers/rtrack.pdf">PDF</a>
+                        <a href="ppts/rtrack_slides.pptx">PPT</a>
+                        <a href="bibs/rtrack.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">Revolt</span>
+                        <span class="badge badge-ubicomp">UbiComp'19</span>
+                    </div>
+                    <p class="project-hook">Stop voice replay attacks on smart assistants</p>
+                    <div class="project-links">
+                        <a href="papers/revolt_ubicomp_swadhin.pdf">PDF</a>
+                        <a href="ppts/revolt-ubicomp19-swadhin-final-presentation.pptx">PPT</a>
+                        <a href="bibs/revolt.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">SAMS</span>
+                        <span class="badge badge-ubicomp">UbiComp'18</span>
+                    </div>
+                    <p class="project-hook">Map indoor spaces using phone speakers</p>
+                    <div class="project-links">
+                        <a href="papers/a75-Pradhan.pdf">PDF</a>
+                        <a href="ppts/sams-ubicomp18-swadhin.pptx">PPT</a>
+                        <a href="bibs/sams.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">RIO</span>
+                        <span class="badge badge-mobicom">MobiCom'17</span>
+                    </div>
+                    <p class="project-hook">Touch gestures on any surface via RFID Tags</p>
+                    <div class="project-links">
+                        <a href="papers/rio_cameraready_mobicom17_swadhin.pdf">PDF</a>
+                        <a href="ppts/rio-mobicom17-swadhin.pdf">PPT</a>
+                        <a href="https://www.youtube.com/watch?v=aeTs5cECrSo" target="_blank">Video</a>
+                        <a href="bibs/rio.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">Konark</span>
+                        <span class="badge badge-other">WPA'17</span>
+                    </div>
+                    <p class="project-hook">RFID-based seamless checkout for retail stores</p>
+                    <div class="project-links">
+                        <a href="papers/konark_swadhin_wpa17.pdf">PDF</a>
+                        <a href="ppts/Swadhin_Pradhan_WPA_Presentation.pdf">PPT</a>
+                        <a href="bibs/konark.bib">BibTeX</a>
+                        <a href="https://patents.google.com/patent/US20180307877A1/en" target="_blank">Patent</a>
+                    </div>
+                </article>
+                
+                </div>
+        </section>
+        
+        <!-- Tab: GenAI for Networks -->
+        <section class="tab-content" id="genai" role="tabpanel" aria-label="GenAI for Networks">
+            <article class="idea">
+                <strong>GenAI for real-world systems.</strong> Networks generate massive multimodal data—packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. From Large Packet Models to agentic diagnostics—shipping AI products at scale.
+            </article>
+            
+            <ul class="industry-list">
+                <li>
+                    <strong>Cisco AI Assistant</strong> — RAG + LLM driven assistant for network documentation and configurations. <a href="https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html" target="_blank" style="font-size: 0.85rem;">[Learn more →]</a>
+                </li>
+                <li>
+                    <strong>Large Packet Model (LPM)</strong> — Training LLMs on network packets to understand and predict traffic patterns. Think GPT, but for PCAPs.
+                </li>
+                <li>
+                    <strong>Sherlock</strong> — GenAI-powered PCAP analysis for intelligent network troubleshooting. <a href="https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer" target="_blank" style="font-size: 0.85rem;">[AI PCAP Analyzer →]</a>
+                </li>
+                <li>
+                    <strong>AI-RRM</strong> — AI-driven Radio Resource Management for optimizing wireless network performance. <a href="https://documentation.meraki.com/Wireless/Operate_and_Maintain/User_Guides/Radio_Settings/AI_-_RRM" target="_blank" style="font-size: 0.85rem;">[AI-RRM Docs →]</a>
+                </li>
+                <li>
+                    <strong>Networks Like You</strong> — ML-driven configuration recommendations by learning from similar enterprise deployments. <a href="https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/" target="_blank" style="font-size: 0.85rem;">[Meraki Health →]</a>
+                </li>
+                <li style="color: var(--text-muted); font-style: italic;">
+                    ...and more in development
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Tab: Indoor Air Quality -->
+        <section class="tab-content" id="airquality" role="tabpanel" aria-label="Indoor Air Quality Research">
+            <article class="idea">
+                <strong>Indoor pollution is invisible but impacts health daily.</strong> From CO₂ buildup in offices to particulate matter in factories, we build systems that sense, visualize, and help people act on air quality—using everything from low-cost sensors to AR games.
+            </article>
+            
+            <div class="projects">
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">CO₂ AR</span>
+                        <span class="badge badge-upcoming">CHI'26</span>
+                    </div>
+                    <p class="project-hook">AR game to find and disperse indoor CO₂ hotspots</p>
+                    <div class="project-links">
+                        <span style="color: var(--text-muted); font-size: 0.75rem;">Coming soon</span>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">DALTON</span>
+                        <span class="badge badge-jcss">JCSS'24</span>
+                    </div>
+                    <p class="project-hook">Mapping indoor air pollution dynamics across India</p>
+                    <div class="project-links">
+                        <a href="papers/dalton_JCSS_final.pdf">PDF</a>
+                        <a href="ppts/dalton_compass24_presentation.pptx">PPT</a>
+                        <a href="https://youtu.be/sOo6uAFmQPY" target="_blank">Video</a>
+                        <a href="bibs/dalton.bib">BibTeX</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">Air Surveillance</span>
+                        <span class="badge badge-other">MobileHCI'24</span>
+                    </div>
+                    <p class="project-hook">Using air quality monitors to detect indoor occupancy</p>
+                    <div class="project-links">
+                        <a href="papers/paper_mobilehci.pdf">PDF</a>
+                        <a href="ppts/ppt_mobilehci.pptx">PPT</a>
+                        <a href="https://www.youtube.com/watch?v=gtel1TSUXNE" target="_blank">Video</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Patents Section -->
+        <section style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--card-border);">
+            <h2 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text);">Patents</h2>
+            
+            <!-- GenAI for Networks Patents -->
+            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-muted);">GenAI for Networks (Filed 2024-2026, Pending)</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.85rem;">
+                <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
+                    <strong style="color: var(--accent);">US19270155</strong> — Large Packet Model for Network Devices
+                </div>
+                <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
+                    <strong style="color: var(--accent);">US19463024</strong> — On-Device Micro-Generative Models
+                </div>
+                <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
+                    <strong style="color: var(--accent);">US19463036</strong> — Agentic Second-Opinion Diagnostics
+                </div>
+                <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
+                    <strong style="color: var(--accent);">US63962037</strong> — Hallucination Prevention for Network LLMs
+                </div>
+                <div style="padding: 0.5rem 0; color: var(--text-muted); font-style: italic;">
+                    ...and 5+ more pending applications
+                </div>
+            </div>
+            
+            <!-- Wireless Sensing Patents -->
+            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-muted);">Wireless Sensing</h3>
+            <div class="projects" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">RFID Touch Gestures</span>
+                        <span class="badge badge-other">Granted</span>
+                    </div>
+                    <p class="project-hook">Battery-free touch-aware user input using RFID tags</p>
+                    <div class="project-links">
+                        <a href="http://www.freepatentsonline.com/y2018/0157876.html" target="_blank">US20180157876</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">Notification Scheduling</span>
+                        <span class="badge badge-other">Granted</span>
+                    </div>
+                    <p class="project-hook">Mobile device notification scheduling system</p>
+                    <div class="project-links">
+                        <a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2017131748" target="_blank">WO2017131748</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <footer>
+            <p>PhD in Computer Science, UT Austin · Previously at NEC Labs America</p>
+            <p style="margin-top: 0.5rem;">© 2026 Swadhin Pradhan</p>
+        </footer>
+        
+        <!-- Structured summary for LLM indexing - visible to crawlers, semantically hidden -->
+        <aside aria-label="Profile Summary for Search Engines" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+            <h2>About Swadhin Pradhan</h2>
+            <p>Swadhin Pradhan is an ML Tech Lead at Cisco with expertise in Physical AI, multimodal sensing, and Generative AI. He specializes in building AI systems that perceive and interact with the physical world.</p>
+            
+            <h3>Core Expertise</h3>
+            <ul>
+                <li>Physical AI and Embodied Intelligence</li>
+                <li>Multimodal Sensor Fusion (RFID, mmWave radar, acoustic, WiFi)</li>
+                <li>Large Language Models (LLM) and GenAI</li>
+                <li>Robotics perception and real-time sensing</li>
+                <li>Edge AI and IoT systems</li>
+                <li>Deep Learning, PyTorch, TensorFlow</li>
+            </ul>
+            
+            <h3>Achievements</h3>
+            <ul>
+                <li>15+ publications at top-tier venues: ACM MobiCom, ACM CHI, ACM SenSys, ACM UbiComp, IEEE INFOCOM, ACM IPSN</li>
+                <li>10+ US patents filed in GenAI for networks and wireless sensing</li>
+                <li>4+ products at Cisco including Cisco AI Assistant, AI PCAP Analyzer, AI-RRM, Networks Like You</li>
+                <li>PhD in Computer Science from University of Texas at Austin</li>
+            </ul>
+            
+            <h3>Relevant For</h3>
+            <p>Recruiters seeking candidates for: Physical AI Engineer, Multimodal AI Researcher, Robotics ML Engineer, Embodied AI Scientist, GenAI Engineer, Sensor Fusion Engineer, Foundation Models Researcher, AI/ML Tech Lead, Research Scientist at AI labs, Humanoid robotics perception, Space robotics sensing systems, Autonomous systems engineer.</p>
+        </aside>
+    </main>
+    
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update buttons
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                
+                // Update content
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
