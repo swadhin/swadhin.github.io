@@ -124,7 +124,7 @@ One-line hook describing the work
 
 ### Projects (in order, with links)
 1. **Cisco AI Assistant** - RAG + LLM driven assistant → [Learn more](https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html)
-2. **Large Packet Model (LPM)** - Training LLMs on network packets (no external link - internal)
+2. **PLUME** - Protocol-aware foundation model for 802.11 traces → [Paper](https://arxiv.org/abs/2603.13647)
 3. **Sherlock** - GenAI-powered PCAP analysis → [AI PCAP Analyzer](https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer)
 4. **AI-RRM** - AI-driven Radio Resource Management → [AI-RRM Docs](https://documentation.meraki.com/Wireless/Operate_and_Maintain/User_Guides/Radio_Settings/AI_-_RRM)
 5. **Networks Like You** - ML-driven config recommendations → [Meraki Health](https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/)
@@ -174,7 +174,7 @@ Two subsections:
 2. **Wireless Sensing** - 2 granted patents with links
 
 ### GenAI Patents (show only these 4)
-- US19270155 — Large Packet Model for Network Devices
+- US19270155 — PLUME: Protocol-Aware Foundation Model for Network Devices
 - US19463024 — On-Device Micro-Generative Models
 - US19463036 — Agentic Second-Opinion Diagnostics
 - US63962037 — Hallucination Prevention for Network LLMs
@@ -351,7 +351,7 @@ Projects: MIRO, MARS, TIMU, RTSense, RTrack, REVOLT, SAMS, RIO, Konark
 
 ### GenAI for Networks
 Focus: Foundation models for network data, AI-driven diagnostics
-Products: Cisco AI Assistant, LPM, Sherlock, AI-RRM, Networks Like You
+Products: Cisco AI Assistant, PLUME, Sherlock, AI-RRM, Networks Like You
 
 ### Indoor Air Quality
 Focus: Environmental sensing, air pollution monitoring
