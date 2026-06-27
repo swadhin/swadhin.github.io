@@ -174,7 +174,7 @@ Two subsections:
 2. **Wireless Sensing** - 2 granted patents with links
 
 ### GenAI Patents (show only these 4)
-- US19270155 — PLUME: Protocol-Aware Foundation Model for Network Devices
+- US19270155 — Large Packet Model for Network Devices
 - US19463024 — On-Device Micro-Generative Models
 - US19463036 — Agentic Second-Opinion Diagnostics
 - US63962037 — Hallucination Prevention for Network LLMs
