@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/">
     <meta property="og:title" content="Why Architecture Convergence is Not Model Convergence | Swadhin Pradhan">
     <meta property="og:description" content="We should not get trapped in infinite prompt and harness engineering on a single gigantic model to solve every domain problem. Exploit the simplistic genius of decoder-only transformers, but train your own domain-native models.">
-    <meta property="og:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    <meta property="og:image" content="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/deep.jpg">
     <meta property="article:published_time" content="2026-08-21T00:00:00Z">
     <meta property="article:author" content="Swadhin Pradhan">
     
@@ -25,7 +25,7 @@
     <meta property="twitter:url" content="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/">
     <meta property="twitter:title" content="Why Architecture Convergence is Not Model Convergence">
     <meta property="twitter:description" content="Exploit the simplistic genius of decoder-only transformers, but train your own domain-native models with your own proprietary data.">
-    <meta property="twitter:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    <meta property="twitter:image" content="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/deep.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/">
@@ -378,6 +378,53 @@
             color: var(--text-muted);
         }
 
+        /* Post Figure & Media */
+        .post-figure {
+            margin: 2.25rem 0;
+            text-align: center;
+        }
+
+        .post-figure a {
+            display: block;
+            text-decoration: none;
+            cursor: zoom-in;
+        }
+
+        .post-figure img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+            display: block;
+            margin: 0 auto;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .post-figure a:hover img {
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        [data-theme="dark"] .post-figure a:hover img {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+        }
+
+        .post-figcaption {
+            margin-top: 0.85rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            text-align: center;
+            padding: 0 0.5rem;
+        }
+
+        .post-figcaption strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
         /* Post Footer */
         .post-detail-footer {
             display: flex;
@@ -509,6 +556,15 @@
                 <p>
                     My argument is simple: <strong>we are conflating architecture convergence with model convergence.</strong>
                 </p>
+
+                <figure class="post-figure">
+                    <a href="deep.jpg" target="_blank" rel="noopener" title="Model Intelligence Evolution: Architecture Convergence vs. Model Convergence (Click to view full resolution)">
+                        <img src="deep.jpg" alt="Model Intelligence Evolution: Architecture Convergence vs. Model Convergence. A diagram illustrating the evolution from M×N bespoke micro-models to a single centralized general model, and finally to data-native models that reuse one transformer architecture while building specialized models around domain data." title="Model Intelligence Evolution: Architecture Convergence vs. Model Convergence" loading="lazy" width="1449" height="736">
+                    </a>
+                    <figcaption class="post-figcaption">
+                        <strong>Figure 1: Model Intelligence Evolution.</strong> Architecture convergence does not imply model convergence. Rather than funneling every domain problem into a single centralized generalist model, the data-native path converges on a unified transformer architecture while training specialized models tailored to proprietary data streams.
+                    </figcaption>
+                </figure>
                 <p>
                     The decoder-only autoregressive transformer is arguably the most scalable, elegant computational abstraction discovered in modern computing. Its attention dynamics, KV-caching efficiency, and parallelizable pretraining routines represent genuine architecture convergence. But adopting this universal architecture does not imply that everyone must query the exact same multi-trillion parameter monolithic model in the cloud.
                 </p>

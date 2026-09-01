@@ -42,7 +42,7 @@ This document captures all design decisions, content preferences, and technical 
 ```
 [Avatar 130px]   ML Lead @ Cisco · PhD, UT Austin
                  Building Physical AI, wireless sensing, and network foundation models.
-                 [Scholar] [GitHub] [LinkedIn] [Email] [CV]
+                 [Scholar] [GitHub] [HF] [LinkedIn] [Email] [CV]
 ```
 
 **Photo:** Circular, 130px, with `object-position: center 15%` and hover scale animation.
@@ -53,7 +53,7 @@ This document captures all design decisions, content preferences, and technical 
 **Bio:** Concise, single sentence (no name repetition):
 > "Building Physical AI, wireless sensing, and network foundation models."
 
-**Social Links:** Scholar, GitHub, LinkedIn, Email (`mailto:swadhinjeet88@gmail.com`), CV with inline SVG icons and hover lift.
+**Social Links:** Scholar, GitHub, HF (`https://huggingface.co/swadhinp`), LinkedIn, Email (`mailto:swadhinjeet88@gmail.com`), CV with inline SVG icons and hover lift.
 
 ### Views (3 Primary Views)
 1. **Research** (`#research` or `#sensing`, `#genai`, `#airquality`, `#mobile`):
