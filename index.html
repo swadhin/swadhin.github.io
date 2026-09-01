@@ -981,6 +981,10 @@
             padding: 1.25rem;
             transition: all 0.2s ease;
             box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
         }
         
         .project:hover {
@@ -992,7 +996,8 @@
         .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            gap: 0.5rem;
             margin-bottom: 0.5rem;
         }
         
@@ -1000,6 +1005,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--text);
+            line-height: 1.3;
         }
         
         .badge {
@@ -1010,6 +1016,8 @@
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         
         .badge-mobicom { background: var(--badge-mobicom); }
@@ -1030,14 +1038,17 @@
         .project-hook {
             font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.85rem;
             line-height: 1.5;
+            flex: 1 1 auto;
         }
         
         .project-links {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
+            margin-top: auto;
+            align-items: center;
         }
         
         .project-links a {
@@ -1048,6 +1059,9 @@
             border-radius: 4px;
             color: var(--text-muted);
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            line-height: 1.3;
         }
         
         .project-links a:hover {
@@ -1363,20 +1377,21 @@
                         <span class="project-name">APEX</span>
                         <span class="badge badge-sensys">ICML'26</span>
                     </div>
-                    <p class="project-hook">Building time-series foundation model from scratch to forecast and detect anomalies. Making Edge AI in Access Points a reality</p>
+                    <p class="project-hook">Building time-series foundation model to forecast and detect anomalies at the edge</p>
                     <div class="project-links">
-                        <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank">LinkedIn</a>
+                        <a href="https://arxiv.org/abs/2606.11553" target="_blank" rel="noopener">Paper</a>
+                        <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank" rel="noopener">LinkedIn</a>
                     </div>
                 </article>
                 
                 <article class="project">
                     <div class="project-header">
-                        <span class="project-name">Cisco AI Assistant</span>
+                        <span class="project-name">Cisco AIA</span>
                         <span class="badge badge-infocom">Product</span>
                     </div>
                     <p class="project-hook">RAG + LLM driven assistant for network operations</p>
                     <div class="project-links">
-                        <a href="https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html" target="_blank">Learn more</a>
+                        <a href="https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html" target="_blank" rel="noopener">Learn more</a>
                     </div>
                 </article>
                 
@@ -1387,7 +1402,8 @@
                     </div>
                     <p class="project-hook">Protocol-aware foundation model for 802.11 traces</p>
                     <div class="project-links">
-                        <a href="https://arxiv.org/abs/2603.13647" target="_blank">Paper</a>
+                        <a href="https://arxiv.org/abs/2603.13647" target="_blank" rel="noopener">Paper 1</a>
+                        <a href="https://arxiv.org/pdf/2606.20587" target="_blank" rel="noopener">Paper 2</a>
                     </div>
                 </article>
                 
@@ -1398,7 +1414,7 @@
                     </div>
                     <p class="project-hook">GenAI-powered PCAP analysis for network troubleshooting</p>
                     <div class="project-links">
-                        <a href="https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer" target="_blank">AI PCAP Analyzer</a>
+                        <a href="https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer" target="_blank" rel="noopener">AI PCAP Analyzer</a>
                     </div>
                 </article>
                 
@@ -1409,29 +1425,18 @@
                     </div>
                     <p class="project-hook">AI-driven Radio Resource Management for enterprise networks</p>
                     <div class="project-links">
-                        <a href="https://documentation.meraki.com/Wireless/Operate_and_Maintain/User_Guides/Radio_Settings/AI_-_RRM" target="_blank">AI-RRM Docs</a>
+                        <a href="https://documentation.meraki.com/Wireless/Operate_and_Maintain/User_Guides/Radio_Settings/AI_-_RRM" target="_blank" rel="noopener">AI-RRM Docs</a>
                     </div>
                 </article>
                 
                 <article class="project">
                     <div class="project-header">
-                        <span class="project-name">Networks Like You</span>
+                        <span class="project-name">NLY</span>
                         <span class="badge badge-sensys">Product</span>
                     </div>
                     <p class="project-hook">ML-driven network configuration recommendations</p>
                     <div class="project-links">
-                        <a href="https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/" target="_blank">Meraki Health</a>
-                    </div>
-                </article>
-                
-                <article class="project">
-                    <div class="project-header">
-                        <span class="project-name">...and more in development</span>
-                        <span class="badge badge-mobicom">Future</span>
-                    </div>
-                    <p class="project-hook">More exciting network intelligence products in the pipeline</p>
-                    <div class="project-links">
-                        <span style="color: var(--text-muted); font-size: 0.8rem;">Coming soon</span>
+                        <a href="https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/" target="_blank" rel="noopener">Meraki Health</a>
                     </div>
                 </article>
             </div>
@@ -1892,7 +1897,11 @@
                         <span>•</span>
                         <span class="post-tag">ICML 2026 Workshop · EdgeAI</span>
                     </div>
-                    <div class="post-detail-meta-right">
+                    <div class="post-detail-meta-right" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <a href="https://arxiv.org/abs/2606.11553" target="_blank" rel="noopener" class="post-external-btn">
+                            <span>Read on ArXiv</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
                         <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank" rel="noopener" class="post-external-btn">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                             <span>View on LinkedIn</span>
@@ -2003,9 +2012,13 @@
                         <span>•</span>
                         <span class="post-tag">ArXiv:2603.13647 · SOTA</span>
                     </div>
-                    <div class="post-detail-meta-right" style="display: flex; gap: 0.5rem;">
+                    <div class="post-detail-meta-right" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                         <a href="https://arxiv.org/abs/2603.13647" target="_blank" rel="noopener" class="post-external-btn">
-                            <span>Read on ArXiv</span>
+                            <span>Paper 1 (ArXiv)</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                        <a href="https://arxiv.org/pdf/2606.20587" target="_blank" rel="noopener" class="post-external-btn">
+                            <span>Paper 2 (PDF)</span>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                         </a>
                         <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_plume-building-a-network-native-foundation-activity-7467798163064582144-YATk" target="_blank" rel="noopener" class="post-external-btn">

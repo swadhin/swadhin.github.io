@@ -132,14 +132,15 @@ One-line hook describing the work
 > "GenAI for real-world systems. Networks generate massive multimodal data: packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. We are shipping AI products at scale, from foundational generative models for networks to agentic diagnostics."
 
 ### Projects (in order, with links)
-1. **Cisco AI Assistant** - RAG + LLM driven assistant → [Learn more](https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html)
-2. **PLUME** - Protocol-aware foundation model for 802.11 traces → [Paper](https://arxiv.org/abs/2603.13647)
-3. **Sherlock** - GenAI-powered PCAP analysis → [AI PCAP Analyzer](https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer)
-4. **AI-RRM** - AI-driven Radio Resource Management → [AI-RRM Docs](https://documentation.meraki.com/Wireless/Operate_and_Maintain/User_Guides/Radio_Settings/AI_-_RRM)
-5. **Networks Like You** - ML-driven config recommendations → [Meraki Health](https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/)
-6. "...and more in development"
+1. **APEX** (ICML'26) - Building time-series foundation model to forecast and detect anomalies at the edge → [Paper](https://arxiv.org/abs/2606.11553) · [LinkedIn](https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0)
+2. **Cisco AIA** - RAG + LLM driven assistant for network operations → [Learn more](https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html)
+3. **PLUME** (ArXiv'26) - Protocol-aware foundation model for 802.11 traces → [Paper 1](https://arxiv.org/abs/2603.13647) · [Paper 2](https://arxiv.org/pdf/2606.20587)
+4. **Sherlock** - GenAI-powered PCAP analysis for network troubleshooting → [AI PCAP Analyzer](https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer)
+5. **AI-RRM** - AI-driven Radio Resource Management for enterprise networks → [AI-RRM Docs](https://documentation.meraki.com/Wireless/Operate_and_Maintain/User_Guides/Radio_Settings/AI_-_RRM)
+6. **NLY** - ML-driven network configuration recommendations → [Meraki Health](https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/)
 
 ### Removed from this tab
+- ...and more in development
 - Smart Alerting
 - Intelligent RCA
 
@@ -366,7 +367,7 @@ Projects: MIRO, MARS, TIMU, RTSense, RTrack, REVOLT, SAMS, RIO, Konark
 
 ### GenAI for Networks
 Focus: Foundation models for network data, AI-driven diagnostics
-Products: Cisco AI Assistant, PLUME, Sherlock, AI-RRM, Networks Like You
+Products: APEX, Cisco AIA, PLUME, Sherlock, AI-RRM, NLY
 
 ### Indoor Air Quality
 Focus: Environmental sensing, air pollution monitoring
