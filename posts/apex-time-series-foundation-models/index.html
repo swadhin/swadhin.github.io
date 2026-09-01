@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>APEX: Edge-Native Time-Series Foundation Models for Network Telemetry | Swadhin Pradhan</title>
+    <meta name="title" content="APEX: Edge-Native Time-Series Foundation Models for Network Telemetry | Swadhin Pradhan">
+    <meta name="description" content="Instead of renting third-party models, build custom small generative models running close to the metal. APEX reduced MAE by 18% versus Toto and 38% versus SARIMA on DHCP forecasting.">
+    <meta name="author" content="Swadhin Pradhan">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.swadhinpradhan.com/posts/apex-time-series-foundation-models/">
+    <meta property="og:title" content="APEX: Edge-Native Time-Series Foundation Models for Network Telemetry | Swadhin Pradhan">
+    <meta property="og:description" content="Instead of renting third-party models, build custom small generative models running close to the metal. APEX reduced MAE by 18% versus Toto and 38% versus SARIMA on DHCP forecasting.">
+    <meta property="og:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    <meta property="article:published_time" content="2026-07-13T00:00:00Z">
+    <meta property="article:author" content="Swadhin Pradhan">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.swadhinpradhan.com/posts/apex-time-series-foundation-models/">
+    <meta property="twitter:title" content="APEX: Edge-Native Time-Series Foundation Models for Network Telemetry">
+    <meta property="twitter:description" content="Sub-1B custom generative time-series foundation models running close to the metal on enterprise wireless access points.">
+    <meta property="twitter:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.swadhinpradhan.com/posts/apex-time-series-foundation-models/">
+    
+    <!-- Favicon - Regal Purple SP Monogram -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="alternate icon" href="../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../favicon_256.png">
+    <link rel="alternate" type="application/rss+xml" title="Swadhin Pradhan" href="../../rss.xml">
+    
+    <!-- Pre-paint Theme Detection -->
+    <script>
+        (function() {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored ? stored : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
+    
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-muted: #52525b;
+            --text-light: #71717a;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e4e4e7;
+            --card-bg: #ffffff;
+            --card-border: #e4e4e7;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            --badge-bg: #f4f4f5;
+            --nav-bg: rgba(250, 250, 250, 0.85);
+            --callout-bg: #eff6ff;
+            --callout-border: #bfdbfe;
+            --callout-title: #1e40af;
+            --code-bg: #f1f5f9;
+        }
+
+        [data-theme="dark"] {
+            --bg: #111827;
+            --text: #f9fafb;
+            --text-muted: #9ca3af;
+            --text-light: #6b7280;
+            --accent: #60a5fa;
+            --accent-hover: #93c5fd;
+            --border: #374151;
+            --card-bg: #1f2937;
+            --card-border: #374151;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            --badge-bg: #374151;
+            --nav-bg: rgba(17, 24, 39, 0.85);
+            --callout-bg: rgba(30, 58, 138, 0.25);
+            --callout-border: #1e3a8a;
+            --callout-title: #93c5fd;
+            --code-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        /* Site Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .site-logo:hover {
+            color: var(--accent);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.25rem 0;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 1px;
+        }
+
+        .header-utilities {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-icon-link,
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.4rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .header-icon-link:hover,
+        .theme-toggle-btn:hover {
+            color: var(--text);
+            border-color: var(--text-muted);
+            background: var(--badge-bg);
+        }
+
+        .theme-toggle-btn .moon-icon { display: block; }
+        .theme-toggle-btn .sun-icon { display: none; }
+        [data-theme="dark"] .theme-toggle-btn .moon-icon { display: none; }
+        [data-theme="dark"] .theme-toggle-btn .sun-icon { display: block; }
+
+        /* Main Container */
+        .container {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 4rem;
+            flex: 1;
+        }
+
+        /* Back Navigation */
+        .back-nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(-3px);
+        }
+
+        /* Post Header */
+        .post-detail-title {
+            font-size: 2.1rem;
+            line-height: 1.25;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+        }
+
+        .post-detail-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .post-detail-meta-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .post-tag {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .post-external-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .post-external-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Article Typography */
+        .post-detail-article {
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .post-detail-article p {
+            margin-bottom: 1.4rem;
+        }
+
+        .post-detail-article h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin: 2.4rem 0 1rem;
+            color: var(--text);
+        }
+
+        .post-detail-article h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.8rem 0 0.8rem;
+            color: var(--text);
+        }
+
+        .post-detail-article ul {
+            margin: 0 0 1.5rem 1.5rem;
+        }
+
+        .post-detail-article li {
+            margin-bottom: 0.6rem;
+        }
+
+        .post-detail-article strong {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .post-detail-article a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .post-detail-article a:hover {
+            color: var(--accent-hover);
+        }
+
+        .post-detail-article code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+            background: var(--code-bg);
+            padding: 0.15rem 0.35rem;
+            border-radius: 4px;
+        }
+
+        .post-callout {
+            background: var(--callout-bg);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.8rem 0;
+        }
+
+        .post-callout-title {
+            font-weight: 700;
+            color: var(--callout-title);
+            margin-bottom: 0.4rem;
+            font-size: 1.02rem;
+        }
+
+        .post-detail-article blockquote {
+            border-left: 3px solid var(--border);
+            padding-left: 1.25rem;
+            margin: 1.8rem 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        /* Post Footer */
+        .post-detail-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Site Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.25rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .post-detail-title {
+                font-size: 1.7rem;
+            }
+            .post-detail-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../../#research" class="site-logo">Swadhin Pradhan</a>
+            <div class="header-actions">
+                <nav class="site-nav">
+                    <a href="../../#research" class="nav-link">Research</a>
+                    <a href="../../#posts" class="nav-link active">Posts</a>
+                    <a href="../../#about" class="nav-link">About</a>
+                </nav>
+                <div class="header-utilities">
+                    <a href="../../rss.xml" class="header-icon-link" aria-label="RSS Feed" title="Subscribe via RSS">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 11a9 9 0 0 1 9 9"></path>
+                            <path d="M4 4a16 16 0 0 1 16 16"></path>
+                            <circle cx="5" cy="19" r="1"></circle>
+                        </svg>
+                    </a>
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Theme">
+                        <svg class="moon-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="sun-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="back-nav">
+            <a href="../../#posts" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Back to Posts</span>
+            </a>
+        </div>
+
+        <article>
+            <h1 class="post-detail-title">APEX: Edge-Native Time-Series Foundation Models for Network Telemetry</h1>
+
+            <div class="post-detail-meta">
+                <div class="post-detail-meta-left">
+                    <span class="post-date">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <time datetime="2026-07-13">13 Jul, 2026</time>
+                    </span>
+                    <span>•</span>
+                    <span>4 min read</span>
+                    <span>•</span>
+                    <span class="post-tag">ICML 2026 Workshop · EdgeAI</span>
+                </div>
+                <div class="post-detail-meta-right">
+                    <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank" rel="noopener" class="post-external-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <span>View on LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="post-detail-article">
+                <p>
+                    In modern machine learning, core architectures and algorithms are widely published. What is truly scarce and defensible is proprietary data, domain verification, and edge distribution. If your team has captured the data, understands the domain verification, and controls the distribution channels, why would you rent out the intelligence layer to an external cloud model?
+                </p>
+
+                <p>
+                    Our response at Cisco has been to develop <strong>APEX</strong>: a network-native time-series foundation model designed to forecast telemetry and detect operational anomalies directly on access-point class devices. We recently shared our initial findings at the <strong>ICML 2026 Workshop on Foundation Models for Structured Data</strong>.
+                </p>
+
+                <h2>Real-World Systems Have Their Own Physics</h2>
+                <p>
+                    A publication in Nature Portfolio highlighted an essential reality: in complex, high-velocity environments, models trained explicitly on domain-native signals decisively beat massive generalist models. That study evaluated clinical and surgical data, but the principle applies universally across physical and networked systems.
+                </p>
+                <p>
+                    Enterprise wireless networks do not generate generic numeric streams. They produce interconnected multivariate signals governed by strict protocol dynamics:
+                </p>
+                <ul>
+                    <li>Dynamic DHCP address allocation requests, Discover-Offer handshakes, and lease renewal timeouts.</li>
+                    <li>Non-linear RF channel interference, thermal noise shifts, and signal-to-noise ratio (SNR) fluctuations.</li>
+                    <li>High-frequency packet retry bursts and client association state transitions during roaming handoffs.</li>
+                    <li>Periodic beacon intervals, Target Wake Time (TWT) schedules, and power-save poll cycles.</li>
+                </ul>
+                <p>
+                    Generic time-series models trained on open-web numbers, economic forecasts, or weather sensor grids completely miss the temporal couplings inherent to wireless protocol stacks. They cannot distinguish a normal beacon interval from an abnormal client deauthentication cascade.
+                </p>
+
+                <div class="post-callout">
+                    <div class="post-callout-title">The True Purpose of Edge Intelligence</div>
+                    <p style="margin: 0; font-size: 0.95rem;">
+                        An edge model running on a wireless access point does not need to memorize geography or write sonnets. It needs to deeply understand the microsecond dynamics of its immediate RF environment. Edge deployment is not a mere cost optimization: it guarantees sub-millisecond responsiveness, eliminates cloud dependencies, enforces enterprise data privacy, and runs within the strict power budget of networking hardware.
+                    </p>
+                </div>
+
+                <h2>Protocol-Aware Multivariate Patching in APEX</h2>
+                <p>
+                    Together with Peiman Amini and Niloofar Bahadori, we developed APEX using a protocol-aware multivariate patching strategy. Standard time-series foundation models (TSFMs) treat multiple channels as independent univariate series or apply naive uniform tokenization across metrics.
+                </p>
+                <p>
+                    In contrast, APEX projects co-dependent networking metrics (such as channel utilization, client retry counts, and RSSI) into joint multivariate tokens. This enables cross-attention layers to immediately recognize the physical relationship between a spike in non-WiFi interference and a subsequent dip in DHCP transaction success rates.
+                </p>
+
+                <h2>Benchmarking APEX Against SOTA Foundation Models</h2>
+                <p>
+                    We pretrained APEX on extensive Cisco Meraki enterprise telemetry and evaluated the architecture against general-purpose time-series foundation models (such as Toto) and classical statistical baselines (SARIMA) on our enterprise DHCP forecasting benchmark:
+                </p>
+
+                <ul>
+                    <li><strong>APEX-Large:</strong> Reduced Mean Absolute Error (MAE) by <strong>18% versus Toto</strong> and by <strong>38% versus SARIMA</strong> on complex multi-step forecasting horizons.</li>
+                    <li><strong>APEX-Edge:</strong> Retained highly competitive predictive accuracy while shrinking the parameter footprint to sub-1B, fitting comfortably within the memory and compute limits of AP-class embedded hardware through INT8 quantization.</li>
+                </ul>
+
+                <blockquote>
+                    "Domain-specialized models are beating generalists right now, especially at the edge. Native data matters. The future is not one giant model ruling everything; it is an ecosystem of smaller, domain-native models running close to the metal."
+                </blockquote>
+
+                <h2>What Lies Ahead</h2>
+                <p>
+                    APEX proves that foundation models can operate efficiently outside centralized data centers. By combining domain-native pretraining with edge-aware quantization, we can empower network infrastructure to anticipate capacity bottlenecks, self-heal RF contention, and flag roaming stalls before users ever notice a glitch.
+                </p>
+                <p>
+                    This is only our first milestone with APEX. We are continuing to expand our edge models to cross-modal telemetry, uniting packet representations, RF spectrograms, and device logs into a unified edge intelligence stack.
+                </p>
+            </div>
+
+            <div class="post-detail-footer">
+                <a href="../../#posts" class="back-link">&larr; Back to all posts</a>
+                <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank" rel="noopener" class="post-external-btn">
+                    <span>Discuss on LinkedIn</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Swadhin Pradhan</p>
+    </footer>
+
+    <!-- Theme Toggle Handler -->
+    <script>
+        (function() {
+            const toggleBtn = document.getElementById('theme-toggle');
+            function getCurrentTheme() {
+                const attr = document.documentElement.getAttribute('data-theme');
+                if (attr) return attr;
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    const currentTheme = getCurrentTheme();
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    try {
+                        localStorage.setItem('theme', newTheme);
+                    } catch (e) {}
+                    updateAria(newTheme);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swadhin Pradhan</title>
+    <link>https://www.swadhinpradhan.com/</link>
+    <description>I am Swadhin. ML Lead @Cisco, PhD @UTAustin. Physical AI, Multimodal Sensing, and GenAI for Networks.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://www.swadhinpradhan.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Why Architecture Convergence is Not Model Convergence</title>
+      <link>https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/</link>
+      <guid>https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/</guid>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <description>We should not get trapped in infinite prompt and harness engineering on a single gigantic model to solve every domain problem: giving away our data while never owning the intelligence. We are conflating architecture convergence with model convergence. The win-win middle ground: exploit the simplistic genius of decoder-only transformer architectures, but train your own domain-native models with your own proprietary data.</description>
+    </item>
+    <item>
+      <title>APEX: Edge-Native Time-Series Foundation Models for Network Telemetry</title>
+      <link>https://www.swadhinpradhan.com/posts/apex-time-series-foundation-models/</link>
+      <guid>https://www.swadhinpradhan.com/posts/apex-time-series-foundation-models/</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Algorithms are known, but real-world data is not open, verification is tricky, and distribution is hard. Instead of renting third-party models, build custom small (sub-1B) generative models running close to the metal. Presented at the ICML 2026 Workshop on Foundation Models for Structured Data.</description>
+    </item>
+    <item>
+      <title>How a 140M Protocol-Aware Model Outperformed Trillion-Parameter LLMs</title>
+      <link>https://www.swadhinpradhan.com/posts/how-a-140m-protocol-aware-model-outperformed-trillion-parameter-llms/</link>
+      <guid>https://www.swadhinpradhan.com/posts/how-a-140m-protocol-aware-model-outperformed-trillion-parameter-llms/</guid>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <description>When training models on packet captures using generic BPE tokenizers like tiktoken, tokenization dissects structured protocol fields arbitrarily. By making our tokenizer protocol-aware for 802.11 frames, a lightweight 140M parameter GPT-2 style model outperformed multi-trillion parameter generalist models on predictive PCAP analysis: powering Cisco Meraki's AI PCAP Analyzer for zero-touch troubleshooting.</description>
+    </item>
+  </channel>
+</rss>

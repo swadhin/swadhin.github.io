@@ -33,36 +33,45 @@ This document captures all design decisions, content preferences, and technical 
 
 ## Site Structure
 
-### Hero Section
+### Header & Navigation (Steipete style)
+- **Logo / Brand**: "Swadhin Pradhan" (links to `#research`)
+- **Nav Links**: `Research` · `Posts` · `About`
+- **Utility Actions**: RSS Feed icon link (`rss.xml`) and Dark/Light mode toggle button
+
+### Hero Section (Steipete style)
 ```
-[Photo] Swadhin Pradhan
-        ML Tech Lead @ Cisco
-        [Email] [Scholar] [CV]
-        
-        [Bio paragraph - 3-4 sentences]
+[Avatar 130px]   ML Lead @ Cisco · PhD, UT Austin
+                 Building Physical AI, wireless sensing, and network foundation models.
+                 [Scholar] [GitHub] [LinkedIn] [Email] [CV]
 ```
 
-**Photo:** Circular, 80px, with `object-position: center 15%` to show face properly
+**Photo:** Circular, 130px, with `object-position: center 15%` and hover scale animation.
 
-**Bio:** Full sentences, no bold formatting. Currently:
-> "I build AI systems that perceive and act in the physical world. My work spans wireless sensing using RFID, mmWave, and acoustics, GenAI for network intelligence, indoor air quality monitoring, and mobile systems research. I hold a PhD from UT Austin, have published 15+ papers at premier venues including MobiCom, CHI, SenSys, and NeurIPS, and shipped multiple AI products at Cisco."
+**Hero Role Line (H1 Headline, no name/RSS repetition since already in sticky header):**
+> "ML Lead @ Cisco · PhD, UT Austin"
 
-**Special formatting:**
-- "PhD" is hyperlinked to `papers/PRADHAN-DISSERTATION-2020.pdf`
-- No mention of patents in bio (patents section exists separately)
+**Bio:** Concise, single sentence (no name repetition):
+> "Building Physical AI, wireless sensing, and network foundation models."
 
-**Links order:** Email → Scholar → CV (no GitHub in hero)
+**Social Links:** Scholar, GitHub, LinkedIn, Email (`mailto:swadhinjeet88@gmail.com`), CV with inline SVG icons and hover lift.
 
-### Tabs (4 tabs)
-1. **Wireless Sensing** - Research on RFID, mmWave, acoustic sensing
-2. **GenAI for Networks** - Industry work at Cisco
-3. **Indoor Air Quality** - Environmental sensing research
-4. **Mobile Systems** - Mobile computing, authentication, notifications, energy optimization
-
-### Tab Content Structure
-Each tab has:
-1. **Idea intro** (1-2 sentences in a styled box explaining the vision)
-2. **Project cards** (grid of projects with venue badges and links)
+### Views (3 Primary Views)
+1. **Research** (`#research` or `#sensing`, `#genai`, `#airquality`, `#mobile`):
+   - 4 Research theme sub-tabs (Wireless Sensing, GenAI for Networks, Indoor Air Quality, Mobile Systems)
+   - Idea intro box
+   - Project cards (grid with venue badges, papers, ppts, bibtex, code links)
+   - Patents section (GenAI pending + Wireless granted)
+   - Press coverage section (RTSense, REVOLT, ActivPass)
+2. **Posts** (`#posts` and standalone `/posts/XXX/` pages):
+   - Technical essays & writing list styled in steipete.me aesthetic
+   - Dedicated standalone pages with clean URLs (e.g. `/posts/why-architecture-convergence-is-not-model-convergence/`, `/posts/how-a-140m-protocol-aware-model-outperformed-trillion-parameter-llms/`, `/posts/apex-time-series-foundation-models/`)
+   - Post item with Title, Date + Calendar icon, Reading time, and Excerpt
+3. **About** (`#about`):
+   - In-depth story & journey: UT Austin PhD dissertation, NEC Labs, Cisco Meraki Tech Lead
+   - Core research vision: Physical AI without cameras
+   - Shipped AI products at scale (Cisco AI Assistant, PLUME, Sherlock PCAP Analyzer, AI-RRM)
+   - Key statistics cards (15+ Papers, 10+ Patents, 4+ Shipped Products, PhD UT Austin)
+   - Speaking, advising, and collaboration details
 
 ---
 
@@ -98,7 +107,7 @@ One-line hook describing the work
 ## Tab 1: Wireless Sensing
 
 ### Idea Text
-> "Building multi-modal intelligent sensing systems. Using RFID, acoustic signals, and mmWave radar, we build multimodal sensing systems that track motion, measure temperature, recognize gestures, and authenticate users—enabling embodied intelligence without cameras or wearables. This is for the next generation of robotics and smart environments."
+> "Building multi-modal intelligent sensing systems. Using RFID, acoustic signals, and mmWave radar, we build multimodal sensing systems that track motion, measure temperature, recognize gestures, and authenticate users, enabling embodied intelligence without cameras or wearables. This is for the next generation of robotics and smart environments."
 
 ### Projects (in order)
 1. MIRO (SenSys'26) - "Worker safety using multi-radar re-identification"
@@ -120,7 +129,7 @@ One-line hook describing the work
 ## Tab 2: GenAI for Networks
 
 ### Idea Text
-> "GenAI for real-world systems. Networks generate massive multimodal data—packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. We are shipping AI products at scale, from foundational generative models for networks to agentic diagnostics."
+> "GenAI for real-world systems. Networks generate massive multimodal data: packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. We are shipping AI products at scale, from foundational generative models for networks to agentic diagnostics."
 
 ### Projects (in order, with links)
 1. **Cisco AI Assistant** - RAG + LLM driven assistant → [Learn more](https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html)
@@ -139,7 +148,7 @@ One-line hook describing the work
 ## Tab 3: Indoor Air Quality
 
 ### Idea Text
-> "Indoor pollution is invisible but impacts health daily. From CO₂ buildup in offices to particulate matter in factories, we build systems that sense, visualize, and help people act on indoor air quality—using everything from low-cost sensors to AR games."
+> "Indoor pollution is invisible but impacts health daily. From CO₂ buildup in offices to particulate matter in factories, we build systems that sense, visualize, and help people act on indoor air quality, using low-cost sensors and AR games."
 
 **Note:** Use CO₂ (subscript 2), not CO2
 
@@ -174,15 +183,15 @@ Two subsections:
 2. **Wireless Sensing** - 2 granted patents with links
 
 ### GenAI Patents (show only these 4)
-- US19270155 — Large Packet Model for Network Devices
-- US19463024 — On-Device Micro-Generative Models
-- US19463036 — Agentic Second-Opinion Diagnostics
-- US63962037 — Hallucination Prevention for Network LLMs
+- US19270155: Large Packet Model for Network Devices
+- US19463024: On-Device Micro-Generative Models
+- US19463036: Agentic Second-Opinion Diagnostics
+- US63962037: Hallucination Prevention for Network LLMs
 - "...and 5+ more pending applications"
 
 ### Wireless Sensing Patents (with links)
-- US20180157876 — RFID Touch Gestures → [Patent Link](http://www.freepatentsonline.com/y2018/0157876.html)
-- WO2017131748 — Notification Scheduling → [Patent Link](https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2017131748)
+- US20180157876: RFID Touch Gestures → [Patent Link](http://www.freepatentsonline.com/y2018/0157876.html)
+- WO2017131748: Notification Scheduling → [Patent Link](https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2017131748)
 
 ---
 
@@ -264,13 +273,19 @@ Accessible `<aside>` with:
 - Cards: White with subtle border and shadow
 
 ### Favicon
-Simple green circle (#10b981), inline SVG
+Minimalistic regal purple SP monogram logo with royal coronet crest, vector SVG (`favicon.svg`), multi-size ICO (`favicon.ico`), and Apple Touch icon (`favicon_256.png`).
 
 ### Typography
 System font stack: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
 
 ### Dark Mode
-Automatic via `prefers-color-scheme: dark` media query
+- Automatic via `prefers-color-scheme: dark` media query with manual toggle override
+- Dark/Light mode toggle button integrated in `.hero-links` alongside Email, Scholar, and CV
+- Inline SVG icons: Moon icon in light mode, Sun icon in dark mode
+- Preference persisted in `localStorage` under key `'theme'` (`'light'` or `'dark'`)
+- Pre-paint detection script in `<head>` eliminates FOUC (flash of unstyled content)
+- Accessible with ARIA labels (`aria-label`, `title`) updated dynamically
+- `color-scheme` CSS property set to ensure native browser scrollbars and inputs adapt
 
 ---
 

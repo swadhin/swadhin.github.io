@@ -2,8 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://www.swadhinpradhan.com/</loc>
-        <lastmod>2026-02-03</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-09-01</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.swadhinpradhan.com/posts/apex-time-series-foundation-models/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.swadhinpradhan.com/posts/how-a-140m-protocol-aware-model-outperformed-trillion-parameter-llms/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>

@@ -30,8 +30,24 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.swadhinpradhan.com/">
     
-    <!-- Favicon - Simple green dot -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='%2310b981'/></svg>">
+    <!-- Favicon - Regal Purple SP Monogram -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon_256.png">
+    
+    <!-- RSS Feed Auto-Discovery -->
+    <link rel="alternate" type="application/rss+xml" title="Swadhin Pradhan" href="https://www.swadhinpradhan.com/rss.xml">
+    
+    <!-- Theme Detection (prevents flash of wrong theme before render) -->
+    <script>
+        (function() {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored ? stored : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
     
     <!-- Schema.org JSON-LD - Enhanced for LLM indexing and recruiter discovery -->
     <script type="application/ld+json">
@@ -132,44 +148,140 @@
     </script>
     
     <style>
-        /* CSS Variables */
+        /* CSS Variables - Light Theme Defaults */
         :root {
+            color-scheme: light;
             --bg: #fafafa;
-            --text: #1a1a1a;
-            --text-muted: #666;
+            --text: #111827;
+            --text-muted: #4b5563;
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
-            --card-bg: #fff;
+            --accent-contrast: #ffffff;
+            --card-bg: #ffffff;
             --card-border: #e5e7eb;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
             --tab-active: #2563eb;
-            --tab-inactive: #6b7280;
+            --tab-inactive: #4b5563;
+            --badge-mobicom: #2563eb;
+            --badge-chi: #059669;
+            --badge-sensys: #d97706;
+            --badge-ubicomp: #7c3aed;
+            --badge-ipsn: #dc2626;
+            --badge-mobihoc: #db2777;
+            --badge-infocom: #0284c7;
+            --badge-jcss: #16a34a;
+            --badge-other: #4b5563;
+            --badge-wpa: #0d9488;
+            --badge-comsnets: #4f46e5;
+            --badge-cellnet: #e11d48;
+            --badge-mobilehci: #b45309;
+            --badge-upcoming: #ea580c;
+        }
+        
+        /* Dark Theme - System Preference */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                color-scheme: dark;
+                --bg: #111827;
+                --text: #f9fafb;
+                --text-muted: #9ca3af;
+                --accent: #60a5fa;
+                --accent-hover: #93c5fd;
+                --accent-contrast: #0f172a;
+                --card-bg: #1f2937;
+                --card-border: #374151;
+                --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                --card-shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.5);
+                --tab-active: #2563eb;
+                --tab-inactive: #9ca3af;
+                --badge-mobicom: #3b82f6;
+                --badge-chi: #10b981;
+                --badge-sensys: #f59e0b;
+                --badge-ubicomp: #8b5cf6;
+                --badge-ipsn: #ef4444;
+                --badge-mobihoc: #ec4899;
+                --badge-infocom: #06b6d4;
+                --badge-jcss: #22c55e;
+                --badge-other: #6b7280;
+                --badge-wpa: #14b8a6;
+                --badge-comsnets: #6366f1;
+                --badge-cellnet: #f43f5e;
+                --badge-mobilehci: #eab308;
+                --badge-upcoming: #f97316;
+            }
+        }
+        
+        /* Dark Theme - Explicit User Selection */
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --bg: #111827;
+            --text: #f9fafb;
+            --text-muted: #9ca3af;
+            --accent: #60a5fa;
+            --accent-hover: #93c5fd;
+            --accent-contrast: #0f172a;
+            --card-bg: #1f2937;
+            --card-border: #374151;
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            --card-shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.5);
+            --tab-active: #2563eb;
+            --tab-inactive: #9ca3af;
             --badge-mobicom: #3b82f6;
             --badge-chi: #10b981;
             --badge-sensys: #f59e0b;
             --badge-ubicomp: #8b5cf6;
             --badge-ipsn: #ef4444;
+            --badge-mobihoc: #ec4899;
+            --badge-infocom: #06b6d4;
+            --badge-jcss: #22c55e;
             --badge-other: #6b7280;
             --badge-wpa: #14b8a6;
             --badge-comsnets: #6366f1;
             --badge-cellnet: #f43f5e;
             --badge-mobilehci: #eab308;
+            --badge-upcoming: #f97316;
         }
         
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #111827;
-                --text: #f9fafb;
-                --text-muted: #9ca3af;
-                --card-bg: #1f2937;
-                --card-border: #374151;
-                --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            }
+        /* Light Theme - Explicit User Selection */
+        html[data-theme="light"] {
+            color-scheme: light;
+            --bg: #fafafa;
+            --text: #111827;
+            --text-muted: #4b5563;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-contrast: #ffffff;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+            --tab-active: #2563eb;
+            --tab-inactive: #4b5563;
+            --badge-mobicom: #2563eb;
+            --badge-chi: #059669;
+            --badge-sensys: #d97706;
+            --badge-ubicomp: #7c3aed;
+            --badge-ipsn: #dc2626;
+            --badge-mobihoc: #db2777;
+            --badge-infocom: #0284c7;
+            --badge-jcss: #16a34a;
+            --badge-other: #4b5563;
+            --badge-wpa: #0d9488;
+            --badge-comsnets: #4f46e5;
+            --badge-cellnet: #e11d48;
+            --badge-mobilehci: #b45309;
+            --badge-upcoming: #ea580c;
         }
         
         /* Reset & Base */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         
+        ::selection {
+            background: var(--accent);
+            color: var(--accent-contrast);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             font-size: 16px;
@@ -177,62 +289,618 @@
             color: var(--text);
             background: var(--bg);
             min-height: 100vh;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         
-        a { color: var(--accent); text-decoration: none; }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
         a:hover { color: var(--accent-hover); text-decoration: underline; }
         
         /* Container */
         .container {
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1.25rem 2.5rem;
         }
         
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 2rem 0 1.5rem;
-            border-bottom: 1px solid var(--card-border);
+        /* Site Header (Steipete style) */
+        .site-header {
             margin-bottom: 1.5rem;
         }
         
-        .hero h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-        
-        .hero-links {
+        .header-inner {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
         }
         
-        .hero-links a {
+        .site-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: color 0.2s ease;
+        }
+        
+        .site-logo:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .nav-link {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .nav-link.active {
+            color: var(--accent);
+            font-weight: 600;
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .nav-icon-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.5rem 1rem;
+            justify-content: center;
+            color: var(--text-muted);
+            padding: 0.4rem;
+            border-radius: 6px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        
+        .nav-icon-link:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        .header-divider,
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--card-border);
+            margin: 1rem 0 1.75rem;
+        }
+        
+        /* Theme Toggle in Header */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            padding: 0;
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 6px;
-            font-size: 0.9rem;
-            transition: all 0.2s;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: var(--card-shadow);
         }
         
-        .hero-links a:hover {
+        .theme-toggle:hover {
             background: var(--accent);
-            color: #fff;
+            color: var(--accent-contrast);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .theme-toggle:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        .theme-toggle svg {
+            width: 17px;
+            height: 17px;
+            transition: transform 0.2s ease;
+        }
+        
+        .theme-toggle:hover svg {
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle .theme-icon-sun { display: none; }
+        .theme-toggle .theme-icon-moon { display: block; }
+        
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .theme-toggle .theme-icon-sun { display: block; }
+            :root:not([data-theme="light"]) .theme-toggle .theme-icon-moon { display: none; }
+        }
+        
+        html[data-theme="dark"] .theme-toggle .theme-icon-sun { display: block; }
+        html[data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
+        html[data-theme="light"] .theme-toggle .theme-icon-sun { display: none; }
+        html[data-theme="light"] .theme-toggle .theme-icon-moon { display: block; }
+        
+        /* Hero Section (Steipete style) */
+        .hero {
+            padding: 0.5rem 0 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .avatar-wrap {
+            flex-shrink: 0;
+            display: block;
+        }
+        
+        .hero-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 15%;
+            border: 3px solid var(--card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hero-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-title-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-title {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+        
+        .rss-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: 9999px;
+            background: rgba(234, 88, 12, 0.12);
+            color: #ea580c;
+            border: 1px solid rgba(234, 88, 12, 0.25);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .rss-chip:hover {
+            background: #ea580c;
+            color: #ffffff;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+        
+        .hero-role {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0 0 0.45rem;
+            letter-spacing: -0.015em;
+            line-height: 1.3;
+        }
+        
+        .hero-bio {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .social-pill:hover {
+            background: var(--accent);
+            color: var(--accent-contrast);
             border-color: var(--accent);
             text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .social-pill svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+        
+        .social-pill:hover svg {
+            transform: scale(1.1);
+        }
+        
+        /* Page Views */
+        .page-view {
+            display: none;
+        }
+        
+        .page-view.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        /* Posts Section (Steipete style) */
+        .posts-header {
+            margin-bottom: 1.75rem;
+        }
+        
+        .posts-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+        }
+        
+        .posts-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        
+        .posts-list {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .post-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .post-item:first-child {
+            padding-top: 0;
+        }
+        
+        .post-title-link {
+            text-decoration: none;
+        }
+        
+        .post-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+            transition: color 0.2s ease;
+        }
+        
+        .post-title-link:hover .post-title {
+            text-decoration: underline dashed;
+            text-underline-offset: 4px;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.65rem;
+        }
+        
+        .post-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        
+        .post-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .read-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            margin-top: 0.65rem;
+            transition: gap 0.2s ease;
+        }
+
+        .read-more-link:hover {
+            gap: 0.55rem;
+            text-decoration: underline;
+        }
+
+        /* Post Full Detail View (Steipete style) */
+        .post-full-detail {
+            animation: fadeIn 0.25s ease;
+        }
+
+        .back-nav {
+            margin-bottom: 1.75rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            text-decoration: none;
+            transform: translateX(-2px);
+        }
+
+        .post-detail-title {
+            font-size: 1.85rem;
+            font-weight: 750;
+            color: var(--accent);
+            line-height: 1.3;
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.02em;
+        }
+
+        .post-detail-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding-bottom: 1.25rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .post-detail-meta-left {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+        }
+
+        .post-tag {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .post-external-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .post-external-btn:hover {
+            background: var(--accent);
+            color: var(--accent-contrast);
+            border-color: var(--accent);
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        .post-detail-article {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text);
+        }
+
+        .post-detail-article p {
+            margin-bottom: 1.35rem;
+        }
+
+        .post-detail-article h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 2.25rem 0 0.85rem;
+            letter-spacing: -0.01em;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .post-detail-article h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 1.75rem 0 0.65rem;
+        }
+
+        .post-detail-article blockquote {
+            margin: 1.75rem 0;
+            padding: 1rem 1.35rem;
+            background: var(--card-bg);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .post-detail-article ul, .post-detail-article ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-detail-article li {
+            margin-bottom: 0.5rem;
+        }
+
+        .post-detail-article strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .post-callout {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+        }
+
+        .post-callout-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .post-detail-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .post-detail-title {
+                font-size: 1.45rem;
+            }
+            .post-detail-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+        }
+
+        /* About Section (Steipete style) */
+        .about-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.35rem;
+        }
+        
+        .about-body {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text);
+        }
+        
+        .about-body p {
+            margin-bottom: 1.25rem;
+        }
+        
+        .about-body h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 2rem 0 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .about-body ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-body li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1rem;
+            margin: 1.75rem 0 2.25rem;
+        }
+        
+        .about-stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .about-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        
+        .about-stat-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
         }
         
         /* Tabs */
@@ -311,13 +979,13 @@
             border: 1px solid var(--card-border);
             border-radius: 10px;
             padding: 1.25rem;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             box-shadow: var(--card-shadow);
         }
         
         .project:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: var(--card-shadow-hover);
             border-color: var(--accent);
         }
         
@@ -349,15 +1017,15 @@
         .badge-sensys { background: var(--badge-sensys); }
         .badge-ubicomp { background: var(--badge-ubicomp); }
         .badge-ipsn { background: var(--badge-ipsn); }
-        .badge-mobihoc { background: #ec4899; }
-        .badge-infocom { background: #06b6d4; }
-        .badge-jcss { background: #84cc16; }
+        .badge-mobihoc { background: var(--badge-mobihoc); }
+        .badge-infocom { background: var(--badge-infocom); }
+        .badge-jcss { background: var(--badge-jcss); }
         .badge-other { background: var(--badge-other); }
         .badge-wpa { background: var(--badge-wpa); }
         .badge-comsnets { background: var(--badge-comsnets); }
         .badge-cellnet { background: var(--badge-cellnet); }
         .badge-mobilehci { background: var(--badge-mobilehci); }
-        .badge-upcoming { background: #f97316; }
+        .badge-upcoming { background: var(--badge-upcoming); }
         
         .project-hook {
             font-size: 0.9rem;
@@ -379,13 +1047,13 @@
             border: 1px solid var(--card-border);
             border-radius: 4px;
             color: var(--text-muted);
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
         
         .project-links a:hover {
             background: var(--accent);
             border-color: var(--accent);
-            color: #fff;
+            color: var(--accent-contrast);
             text-decoration: none;
         }
         
@@ -418,36 +1086,131 @@
         }
         
         /* Responsive */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.5rem; }
+        @media (max-width: 640px) {
+            .container { padding: 1rem 1rem 2rem; }
+            .site-nav { gap: 0.4rem; }
+            .nav-link { padding: 0.25rem 0.45rem; font-size: 0.85rem; }
+            .hero-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.25rem;
+            }
+            .hero-role {
+                text-align: center;
+                font-size: 1.2rem;
+            }
+            .hero-bio {
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
             .tabs { gap: 0.3rem; }
             .tab-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
             .projects { grid-template-columns: 1fr; }
+            .about-stats { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
     <main class="container">
-        <!-- Hero Section -->
-        <header class="hero">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                <img src="photos/swadhin_o3.jpeg" alt="Swadhin Pradhan - ML Tech Lead at Cisco, PhD UT Austin, Physical AI and GenAI researcher" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid var(--card-border);">
-                <div>
-                    <h1 style="margin-bottom: 0.1rem;">Swadhin Pradhan</h1>
-                    <p class="subtitle" style="margin-bottom: 0;">ML Tech Lead @ Cisco Meraki</p>
+        <!-- Site Header (Steipete style) -->
+        <header class="site-header">
+            <div class="header-inner">
+                <a href="#research" class="site-logo" title="Swadhin Pradhan - Home">Swadhin Pradhan</a>
+                <nav class="site-nav">
+                    <a href="#research" class="nav-link active" data-nav="research">Research</a>
+                    <a href="#posts" class="nav-link" data-nav="posts">Posts</a>
+                    <a href="#about" class="nav-link" data-nav="about">About</a>
+                    <a href="rss.xml" target="_blank" rel="noopener" class="nav-icon-link" aria-label="RSS Feed" title="Subscribe via RSS">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M4 11a9 9 0 0 1 9 9"></path>
+                            <path d="M4 4a16 16 0 0 1 16 16"></path>
+                            <circle cx="5" cy="19" r="1"></circle>
+                        </svg>
+                    </a>
+                    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle dark/light mode">
+                        <!-- Sun icon (shown in dark mode to switch to light) -->
+                        <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <!-- Moon icon (shown in light mode to switch to dark) -->
+                        <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </nav>
+            </div>
+            <hr class="header-divider">
+        </header>
+
+        <!-- Hero Section (Steipete style) -->
+        <section class="hero">
+            <div class="hero-container">
+                <a href="#about" class="avatar-wrap" title="About Swadhin Pradhan">
+                    <img src="photos/swadhin_o3.jpeg" alt="Swadhin Pradhan - ML Tech Lead at Cisco, PhD UT Austin, Physical AI and GenAI researcher" class="hero-avatar">
+                </a>
+                <div class="hero-content">
+                    <h1 class="hero-role">ML Lead @ Cisco · PhD, UT Austin</h1>
+                    <p class="hero-bio">
+                        Building Physical AI, wireless sensing, and network foundation models.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?user=YT4IhEIAAAAJ&hl=en" target="_blank" rel="noopener" class="social-pill" title="Google Scholar" aria-label="Google Scholar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                            <span>Scholar</span>
+                        </a>
+                        <a href="https://github.com/swadhin" target="_blank" rel="noopener" class="social-pill" title="GitHub" aria-label="GitHub">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/swadhin-pradhan-32b51613/" target="_blank" rel="noopener" class="social-pill" title="LinkedIn" aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="mailto:swadhinjeet88@gmail.com" class="social-pill" title="Email" aria-label="Email">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>Email</span>
+                        </a>
+                        <a href="cvs/swadhin_cv_2026.pdf" target="_blank" class="social-pill" title="Curriculum Vitae" aria-label="CV">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <span>CV</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <nav class="hero-links" style="margin-top: 1rem; gap: 2rem;">
-                <a href="mailto:swadhinjeet88@gmail.com">📧 Email</a>
-                <a href="https://scholar.google.com/citations?user=YT4IhEIAAAAJ&hl=en" target="_blank" rel="noopener">🎓 Scholar</a>
-                <a href="cvs/swadhin_cv_2026.pdf">📄 CV</a>
-            </nav>
-            
-            <!-- Short Bio - For recruiters and collaborators -->
-            <p style="margin-top: 1.25rem; margin-left: auto; margin-right: auto; padding-top: 1rem; border-top: 1px dashed var(--card-border); font-size: 0.95rem; color: var(--text); line-height: 1.7; max-width: 700px; text-align: center;">
-                I build AI systems that perceive and act in the physical world. My work spans wireless sensing using RFID, mmWave, and acoustics, GenAI for network intelligence, indoor air quality monitoring, and mobile systems research. I hold a <a href="papers/PRADHAN-DISSERTATION-2020.pdf">PhD</a> in <a href="https://www.cs.utexas.edu/" target="_blank">CS</a> from UT Austin, have published 15+ papers at premier venues including MobiCom, CHI, SenSys, and NeurIPS, and shipped multiple AI products at Cisco.
-            </p>
-        </header>
+            <hr class="section-divider">
+        </section>
+
+        <!-- View: Research (Contains original tabbed research, patents, and press) -->
+        <div id="view-research" class="page-view active">
         
         <!-- Tabs -->
         <div class="tabs" role="tablist">
@@ -460,7 +1223,7 @@
         <!-- Tab: Sensing -->
         <section class="tab-content active" id="sensing" role="tabpanel" aria-label="Wireless Sensing Research">
             <article class="idea">
-                <strong>Building intelligent sensing systems.</strong> Using RFID, acoustic signals, and mmWave radar, we build intelligent sensing systems that track motion, measure temperature, recognize gestures, and authenticate users—enabling embodied intelligence without cameras or wearables. This is for the next generation of robotics and smart environments.
+                <strong>Building intelligent sensing systems.</strong> Using RFID, acoustic signals, and mmWave radar, we build intelligent sensing systems that track motion, measure temperature, recognize gestures, and authenticate users, enabling embodied intelligence without cameras or wearables. This is for the next generation of robotics and smart environments.
             </article>
             
             <div class="projects">
@@ -591,7 +1354,7 @@
         <!-- Tab: GenAI for Networks -->
         <section class="tab-content" id="genai" role="tabpanel" aria-label="GenAI for Networks">
             <article class="idea">
-                <strong>GenAI for real-world systems.</strong> Networks generate massive multimodal data—packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. We are shipping AI products at scale, from foundational generative models for networks to agentic diagnostics.
+                <strong>GenAI for real-world systems.</strong> Networks generate massive multimodal data: packets, logs, configs. We're building foundation models that understand this "language," enabling AI to diagnose problems, predict failures, and act autonomously. We are shipping AI products at scale, from foundational generative models for networks to agentic diagnostics.
             </article>
             
             <div class="projects">
@@ -602,28 +1365,16 @@
                     </div>
                     <p class="project-hook">Building time-series foundation model from scratch to forecast and detect anomalies. Making Edge AI in Access Points a reality</p>
                     <div class="project-links">
-                        <a href="https://arxiv.org/pdf/2606.11553" target="_blank" rel="noopener noreferrer">Paper</a>
-                    </div>
-               </article>
-            
-                <article class="project">
-                    <div class="project-header">
-                        <span class="project-name">Sherlock</span>
-                        <span class="badge badge-mobicom">Product</span>
-                    </div>
-                    <p class="project-hook">GenAI-powered packet analysis that diagnoses network failures and provides actionable fixes</p>
-                    <div class="project-links">
-                        <a href="https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer" target="_blank">Cisco Docs</a>
-                        <a href="https://community.meraki.com/t5/Feature-Announcements/Introducing-AI-Packet-Analyzer-The-Industry-s-First-AI-Driven/ba-p/291080#M324" target="_blank">Community Post</a>
+                        <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank">LinkedIn</a>
                     </div>
                 </article>
                 
                 <article class="project">
                     <div class="project-header">
-                        <span class="project-name">Cisco AIA</span>
-                        <span class="badge badge-mobicom">Product</span>
+                        <span class="project-name">Cisco AI Assistant</span>
+                        <span class="badge badge-infocom">Product</span>
                     </div>
-                    <p class="project-hook">RAG + LLM driven agentic assistant for network documentation and APIs</p>
+                    <p class="project-hook">RAG + LLM driven assistant for network operations</p>
                     <div class="project-links">
                         <a href="https://www.cisco.com/site/us/en/solutions/artificial-intelligence/ai-assistant/index.html" target="_blank">Learn more</a>
                     </div>
@@ -632,45 +1383,55 @@
                 <article class="project">
                     <div class="project-header">
                         <span class="project-name">PLUME</span>
-                        <span class="badge badge-sensys">Research</span>
+                        <span class="badge badge-upcoming">ArXiv'26</span>
                     </div>
-                    <p class="project-hook">Training LLMs on network packets to predict traffic patterns. Think GPT, but for PCAPs</p>
+                    <p class="project-hook">Protocol-aware foundation model for 802.11 traces</p>
                     <div class="project-links">
-                        <a href="https://arxiv.org/abs/2603.13647" target="_blank" rel="noopener noreferrer">Paper1</a>
-                        <a href="https://arxiv.org/pdf/2606.20587" target="_blank" rel="noopener noreferrer">Paper2</a>
+                        <a href="https://arxiv.org/abs/2603.13647" target="_blank">Paper</a>
+                    </div>
+                </article>
+                
+                <article class="project">
+                    <div class="project-header">
+                        <span class="project-name">Sherlock</span>
+                        <span class="badge badge-chi">Product</span>
+                    </div>
+                    <p class="project-hook">GenAI-powered PCAP analysis for network troubleshooting</p>
+                    <div class="project-links">
+                        <a href="https://documentation.meraki.com/Platform_Management/Dashboard_Administration/Troubleshooting_and_Support/Troubleshooting/AI_PCAP_Analyzer" target="_blank">AI PCAP Analyzer</a>
                     </div>
                 </article>
                 
                 <article class="project">
                     <div class="project-header">
                         <span class="project-name">AI-RRM</span>
-                        <span class="badge badge-mobicom">Product</span>
+                        <span class="badge badge-infocom">Product</span>
                     </div>
-                    <p class="project-hook">AI-driven Radio Resource Management for optimizing wireless network performance</p>
+                    <p class="project-hook">AI-driven Radio Resource Management for enterprise networks</p>
                     <div class="project-links">
                         <a href="https://documentation.meraki.com/Wireless/Operate_and_Maintain/User_Guides/Radio_Settings/AI_-_RRM" target="_blank">AI-RRM Docs</a>
                     </div>
                 </article>
                 
-               <!-- <article class="project">
+                <article class="project">
                     <div class="project-header">
-                        <span class="project-name">uEval</span>
-                        <span class="badge badge-sensys">Research</span>
+                        <span class="project-name">Networks Like You</span>
+                        <span class="badge badge-sensys">Product</span>
                     </div>
-                    <p class="project-hook">Evaluation framework for AI-RRM using dynamic baselining and online change-point detection</p>
+                    <p class="project-hook">ML-driven network configuration recommendations</p>
                     <div class="project-links">
-                        <span style="color: var(--text-muted); font-size: 0.75rem;">Internal project</span>
+                        <a href="https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/" target="_blank">Meraki Health</a>
                     </div>
-                </article> -->
+                </article>
                 
                 <article class="project">
                     <div class="project-header">
-                        <span class="project-name">NLY</span>
-                        <span class="badge badge-mobicom">Product</span>
+                        <span class="project-name">...and more in development</span>
+                        <span class="badge badge-mobicom">Future</span>
                     </div>
-                    <p class="project-hook">ML-driven configuration recommendations by learning from similar enterprise deployments</p>
+                    <p class="project-hook">More exciting network intelligence products in the pipeline</p>
                     <div class="project-links">
-                        <a href="https://meraki.cisco.com/blog/2021/09/use-data-to-define-your-network-with-meraki-health/" target="_blank">Meraki Health</a>
+                        <span style="color: var(--text-muted); font-size: 0.8rem;">Coming soon</span>
                     </div>
                 </article>
             </div>
@@ -679,7 +1440,7 @@
         <!-- Tab: Indoor Air Quality -->
         <section class="tab-content" id="airquality" role="tabpanel" aria-label="Indoor Air Quality Research">
             <article class="idea">
-                <strong>Indoor pollution is invisible but impacts health daily.</strong> From CO₂ buildup in offices to particulate matter in factories, we build systems that sense, visualize, and help people act on indoor air quality—from low-cost sensors to AR games.
+                <strong>Indoor pollution is invisible but impacts health daily.</strong> From CO₂ buildup in offices to particulate matter in factories, we build systems that sense, visualize, and help people act on indoor air quality, using low-cost sensors and AR games.
             </article>
             
             <div class="projects">
@@ -820,16 +1581,16 @@
             <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-muted);">GenAI for Networks (Filed 2024-2026, Pending)</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.85rem;">
                 <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
-                    <strong style="color: var(--accent);">US19270155</strong> — Large Packet Model for Network Devices
+                    <strong style="color: var(--accent);">US19270155</strong>: Large Packet Model for Network Devices
                 </div>
                 <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
-                    <strong style="color: var(--accent);">US19463024</strong> — On-Device Micro-Generative Models
+                    <strong style="color: var(--accent);">US19463024</strong>: On-Device Micro-Generative Models
                 </div>
                 <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
-                    <strong style="color: var(--accent);">US19463036</strong> — Agentic Second-Opinion Diagnostics
+                    <strong style="color: var(--accent);">US19463036</strong>: Agentic Second-Opinion Diagnostics
                 </div>
                 <div style="padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);">
-                    <strong style="color: var(--accent);">US63962037</strong> — Hallucination Prevention for Network LLMs
+                    <strong style="color: var(--accent);">US63962037</strong>: Hallucination Prevention for Network LLMs
                 </div>
                 <div style="padding: 0.5rem 0; color: var(--text-muted); font-style: italic;">
                     ...and 5+ more pending applications
@@ -871,7 +1632,7 @@
                 <!-- RTSense -->
                 <div style="padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px;">
                     <strong style="color: var(--accent); font-size: 0.9rem;"><a href="papers/rtsense.pdf" style="color: var(--accent); text-decoration: none;">RTSense</a></strong>
-                    <span style="color: var(--text-muted); margin-left: 0.5rem;">— Battery-free temperature sensing with passive RFID</span>
+                    <span style="color: var(--text-muted); margin-left: 0.5rem;">: Battery-free temperature sensing with passive RFID</span>
                     <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
                         <a href="https://www.cs.utexas.edu/news/2021/exploring-passive-rfid-tag-use-sensory-technology" target="_blank" style="font-size: 0.8rem;">UT Austin CS News</a>
                     </div>
@@ -880,7 +1641,7 @@
                 <!-- REVOLT -->
                 <div style="padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px;">
                     <strong style="color: var(--accent); font-size: 0.9rem;"><a href="papers/revolt_ubicomp_swadhin.pdf" style="color: var(--accent); text-decoration: none;">REVOLT</a></strong>
-                    <span style="color: var(--text-muted); margin-left: 0.5rem;">— Preventing voice replay attacks on smart speakers</span>
+                    <span style="color: var(--text-muted); margin-left: 0.5rem;">: Preventing voice replay attacks on smart speakers</span>
                     <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
                         <a href="SmartHomes-Q2-2020_v3.pdf" target="_blank" style="font-size: 0.8rem;">Smart Homes Quarterly (Q2 2020)</a>
                     </div>
@@ -889,7 +1650,7 @@
                 <!-- ActivPass -->
                 <div style="padding: 0.75rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px;">
                     <strong style="color: var(--accent); font-size: 0.9rem;"><a href="papers/activpass_chi_2015.pdf" style="color: var(--accent); text-decoration: none;">ActivPass</a></strong>
-                    <span style="color: var(--text-muted); margin-left: 0.5rem;">— Password-free authentication using daily activity</span>
+                    <span style="color: var(--text-muted); margin-left: 0.5rem;">: Password-free authentication using daily activity</span>
                     <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
                         <a href="https://www.theguardian.com/commentisfree/2015/may/05/passwords-activpass-security-codes" target="_blank" style="font-size: 0.8rem;">The Guardian</a>
                         <a href="https://www.bostonglobe.com/ideas/2015/05/12/one-simple-solution-for-online-passwords/WNeYN6HrVLdobXdnEA1WsN/story.html" target="_blank" style="font-size: 0.8rem;">Boston Globe</a>
@@ -899,6 +1660,506 @@
                 </div>
             </div>
         </section>
+        </div> <!-- End of #view-research -->
+
+        <!-- View: Posts (Steipete style) -->
+        <div id="view-posts" class="page-view" style="display: none;">
+            <div class="posts-header">
+                <h2>Writing &amp; Essays</h2>
+                <p>Reflections on physical AI, foundation models for networks, and building real-world intelligent systems.</p>
+            </div>
+
+            <!-- Overview List View -->
+            <div id="posts-overview">
+                <div class="posts-list">
+                    <!-- Post 1: Why Architecture Convergence is Not Model Convergence -->
+                    <article class="post-item" id="item-post-datanative-ai">
+                        <a href="posts/why-architecture-convergence-is-not-model-convergence/" class="post-title-link">
+                            <h3 class="post-title">Why Architecture Convergence is Not Model Convergence</h3>
+                        </a>
+                        <div class="post-meta">
+                            <span class="post-date">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <time datetime="2026-08-21">21 Aug, 2026</time>
+                            </span>
+                            <span>•</span>
+                            <span>4 min read</span>
+                            <span>•</span>
+                            <span style="color: var(--accent); font-weight: 500;">Essay</span>
+                        </div>
+                        <p class="post-excerpt">
+                            We should not get trapped in infinite prompt and harness engineering on a single gigantic model to solve every domain problem: giving away our data while never owning the intelligence. We are conflating architecture convergence with model convergence. The win-win middle ground: exploit the simplistic genius of decoder-only transformer architectures, but train your own domain-native models with your own proprietary data. Within Cisco Meraki, we are applying this philosophy to build data-native AI models directly for wireless access points.
+                        </p>
+                        <div>
+                            <a href="posts/why-architecture-convergence-is-not-model-convergence/" class="read-more-link">Read article &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 2: APEX TSFM -->
+                    <article class="post-item" id="item-post-apex-tsfm">
+                        <a href="posts/apex-time-series-foundation-models/" class="post-title-link">
+                            <h3 class="post-title">APEX: Edge-Native Time-Series Foundation Models for Network Telemetry</h3>
+                        </a>
+                        <div class="post-meta">
+                            <span class="post-date">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <time datetime="2026-07-13">13 Jul, 2026</time>
+                            </span>
+                            <span>•</span>
+                            <span>4 min read</span>
+                            <span>•</span>
+                            <span style="color: var(--accent); font-weight: 500;">ICML 2026 Workshop</span>
+                        </div>
+                        <p class="post-excerpt">
+                            Algorithms are known, but real-world data is not open, verification is tricky, and distribution is hard. Instead of renting third-party models, build custom small (sub-1B) generative models running close to the metal. At the ICML 2026 Workshop on Foundation Models for Structured Data, we shared APEX: a network-native time-series foundation model that reduced MAE by 18% versus Toto and 38% versus SARIMA on DHCP telemetry forecasting while running efficiently on access point hardware.
+                        </p>
+                        <div>
+                            <a href="posts/apex-time-series-foundation-models/" class="read-more-link">Read article &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 3: PLUME -->
+                    <article class="post-item" id="item-post-plume">
+                        <a href="posts/how-a-140m-protocol-aware-model-outperformed-trillion-parameter-llms/" class="post-title-link">
+                            <h3 class="post-title">How a 140M Protocol-Aware Model Outperformed Trillion-Parameter LLMs</h3>
+                        </a>
+                        <div class="post-meta">
+                            <span class="post-date">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <time datetime="2026-05-18">18 May, 2026</time>
+                            </span>
+                            <span>•</span>
+                            <span>5 min read</span>
+                            <span>•</span>
+                            <span style="color: var(--accent); font-weight: 500;">ArXiv:2603.13647</span>
+                        </div>
+                        <p class="post-excerpt">
+                            When training models on packet captures using generic BPE tokenizers like tiktoken, tokenization dissects structured protocol fields arbitrarily. By making our tokenizer protocol-aware for 802.11 frames, a lightweight 140M parameter GPT-2 style model outperformed multi-trillion parameter generalist models on predictive PCAP analysis: powering Cisco Meraki's AI PCAP Analyzer for zero-touch troubleshooting.
+                        </p>
+                        <div>
+                            <a href="posts/how-a-140m-protocol-aware-model-outperformed-trillion-parameter-llms/" class="read-more-link">Read article &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Full Article 1: Data-Native AI -->
+            <article id="post-detail-datanative-ai" class="post-full-detail" style="display: none;">
+                <div class="back-nav">
+                    <a href="#posts" class="back-link" onclick="showPostsList(); return false;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span>Back to Posts</span>
+                    </a>
+                </div>
+
+                <h1 class="post-detail-title">Why Architecture Convergence is Not Model Convergence</h1>
+
+                <div class="post-detail-meta">
+                    <div class="post-detail-meta-left">
+                        <span class="post-date">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <time datetime="2026-08-21">21 Aug, 2026</time>
+                        </span>
+                        <span>•</span>
+                        <span>4 min read</span>
+                        <span>•</span>
+                        <span class="post-tag">DataNative · GenAI</span>
+                    </div>
+                    <div class="post-detail-meta-right">
+                        <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_datanative-genai-localai-activity-7496640330273026048-hQ9d" target="_blank" rel="noopener" class="post-external-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span>View on LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-detail-article">
+                    <p>
+                        We have come a long way from the era of millions of bespoke machine learning models. A decade ago, every specialized problem required its own hand-crafted pipeline: convolutional filters for visual features, recurrent units for temporal signals, random forests for tabular records, and heuristic post-processing to stitch them together. That explosion of fragile point solutions was the natural outcome of a massive cross-product between custom architectures and domain-specific data. Every niche problem spawned a custom pipeline that broke the moment real-world distributions shifted.
+                    </p>
+
+                    <p>
+                        Recently, however, the industry pendulum swung violently to the opposite extreme. The prevailing narrative today suggests that we should solve every real-world problem with a single, gigantic, closed generalist model accessed through an API. If it fails, add more prompt engineering. If that still fails, wrap it in an agentic loop, a synthetic prompt harness, or an orchestration framework.
+                    </p>
+
+                    <div class="post-callout">
+                        <div class="post-callout-title">The Hidden Tax of Model Renting</div>
+                        <p style="margin: 0; font-size: 0.95rem;">
+                            When you funnel high-velocity enterprise telemetry through third-party generalist models via prompt loops, you incur a double loss: you surrender your most valuable domain data to an external provider, and you never actually own the resulting intelligence. It is a perpetual renting cycle with compounding latency, cost, and governance liabilities.
+                        </p>
+                    </div>
+
+                    <h2>Architecture Convergence vs. Model Convergence</h2>
+                    <p>
+                        My argument is simple: <strong>we are conflating architecture convergence with model convergence.</strong>
+                    </p>
+                    <p>
+                        The decoder-only autoregressive transformer is arguably the most scalable, elegant computational abstraction discovered in modern computing. Its attention dynamics, KV-caching efficiency, and parallelizable pretraining routines represent genuine architecture convergence. But adopting this universal architecture does not imply that everyone must query the exact same multi-trillion parameter monolithic model in the cloud.
+                    </p>
+                    <p>
+                        During my PhD at UT Austin working on multimodal wireless sensing and mobile computing, we repeatedly observed that physical signals (backscatter phase shifts, acoustic chirps, mmWave Doppler reflections) carry strict physical invariants. You cannot treat RF phase measurements or protocol state machines like conversational natural language. The laws of multipath propagation, signal attenuation, antenna impedance, and 802.11 state transitions are deterministic constraints. Trying to prompt a generic language model into respecting these physical laws is an uphill, losing battle.
+                    </p>
+
+                    <h2>The Data-Native Path</h2>
+                    <p>
+                        The true win-win middle ground is straightforward:
+                    </p>
+                    <ul>
+                        <li><strong>Exploit the architecture:</strong> Reuse the simplistic genius of decoder-only transformers and the mature training, quantization, and serving tooling surrounding them.</li>
+                        <li><strong>Own your data:</strong> Train your own domain-native generative models directly on your proprietary telemetry, traces, and operational signals.</li>
+                        <li><strong>Build from first principles:</strong> Incorporate domain physics and protocol invariants directly into tokenization, representation schemes, and loss functions.</li>
+                        <li><strong>Eliminate software wrappers:</strong> Stop building fragile regex scaffolds and retry harnesses to compensate for a generalist model's lack of domain intuition.</li>
+                    </ul>
+
+                    <blockquote>
+                        "When algorithms are open and widely known, your true defensible moat is proprietary data, domain verification, and edge distribution. If you master those three, you should never rent out the intelligence layer to a fickle third party."
+                    </blockquote>
+
+                    <h2>Putting Philosophy into Practice on Wireless Access Points</h2>
+                    <p>
+                        Within Cisco Meraki, we are putting this data-native philosophy directly into practice. Working alongside colleagues like Peiman Amini and Niloofar Bahadori, we are designing custom, sub-1B parameter generative models trained directly on access point telemetry, packet captures, and RF environments.
+                    </p>
+                    <p>
+                        Enterprise wireless access points process millions of frame transmissions per second across multiple 2.4 GHz, 5 GHz, and 6 GHz channels. They constantly track Clear Channel Assessment (CCA) thresholds, Received Signal Strength Indicator (RSSI) variances, beamforming feedback matrices, and client roaming handoffs. A model pre-trained natively on these telemetry streams develops an innate understanding of network physics.
+                    </p>
+                    <p>
+                        These models run close to the metal, right where network events unfold. Because they are pre-trained on domain-native distributions, they require a fraction of the compute and memory of generalist LLMs while delivering dramatically higher accuracy on anomaly detection, predictive forecasting, and automated root-cause analysis with zero cloud round-trip delay.
+                    </p>
+                    <p>
+                        The future of applied AI will not be dominated by a single remote model ruling every enterprise workflow. It will be powered by an interconnected ecosystem of compact, data-native models that enterprises train, control, and truly own.
+                    </p>
+                </div>
+
+                <div class="post-detail-footer">
+                    <a href="#posts" class="back-link" onclick="showPostsList(); return false;">&larr; Back to all posts</a>
+                    <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_datanative-genai-localai-activity-7496640330273026048-hQ9d" target="_blank" rel="noopener" class="post-external-btn">
+                        <span>Discuss on LinkedIn</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Full Article 2: APEX TSFM -->
+            <article id="post-detail-apex-tsfm" class="post-full-detail" style="display: none;">
+                <div class="back-nav">
+                    <a href="#posts" class="back-link" onclick="showPostsList(); return false;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span>Back to Posts</span>
+                    </a>
+                </div>
+
+                <h1 class="post-detail-title">APEX: Edge-Native Time-Series Foundation Models for Network Telemetry</h1>
+
+                <div class="post-detail-meta">
+                    <div class="post-detail-meta-left">
+                        <span class="post-date">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <time datetime="2026-07-13">13 Jul, 2026</time>
+                        </span>
+                        <span>•</span>
+                        <span>4 min read</span>
+                        <span>•</span>
+                        <span class="post-tag">ICML 2026 Workshop · EdgeAI</span>
+                    </div>
+                    <div class="post-detail-meta-right">
+                        <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank" rel="noopener" class="post-external-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span>View on LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-detail-article">
+                    <p>
+                        In modern machine learning, core architectures and algorithms are widely published. What is truly scarce and defensible is proprietary data, domain verification, and edge distribution. If your team has captured the data, understands the domain verification, and controls the distribution channels, why would you rent out the intelligence layer to an external cloud model?
+                    </p>
+
+                    <p>
+                        Our response at Cisco has been to develop <strong>APEX</strong>: a network-native time-series foundation model designed to forecast telemetry and detect operational anomalies directly on access-point class devices. We recently shared our initial findings at the <strong>ICML 2026 Workshop on Foundation Models for Structured Data</strong>.
+                    </p>
+
+                    <h2>Real-World Systems Have Their Own Physics</h2>
+                    <p>
+                        A publication in Nature Portfolio highlighted an essential reality: in complex, high-velocity environments, models trained explicitly on domain-native signals decisively beat massive generalist models. That study evaluated clinical and surgical data, but the principle applies universally across physical and networked systems.
+                    </p>
+                    <p>
+                        Enterprise wireless networks do not generate generic numeric streams. They produce interconnected multivariate signals governed by strict protocol dynamics:
+                    </p>
+                    <ul>
+                        <li>Dynamic DHCP address allocation requests, Discover-Offer handshakes, and lease renewal timeouts.</li>
+                        <li>Non-linear RF channel interference, thermal noise shifts, and signal-to-noise ratio (SNR) fluctuations.</li>
+                        <li>High-frequency packet retry bursts and client association state transitions during roaming handoffs.</li>
+                        <li>Periodic beacon intervals, Target Wake Time (TWT) schedules, and power-save poll cycles.</li>
+                    </ul>
+                    <p>
+                        Generic time-series models trained on open-web numbers, economic forecasts, or weather sensor grids completely miss the temporal couplings inherent to wireless protocol stacks. They cannot distinguish a normal beacon interval from an abnormal client deauthentication cascade.
+                    </p>
+
+                    <div class="post-callout">
+                        <div class="post-callout-title">The True Purpose of Edge Intelligence</div>
+                        <p style="margin: 0; font-size: 0.95rem;">
+                            An edge model running on a wireless access point does not need to memorize geography or write sonnets. It needs to deeply understand the microsecond dynamics of its immediate RF environment. Edge deployment is not a mere cost optimization: it guarantees sub-millisecond responsiveness, eliminates cloud dependencies, enforces enterprise data privacy, and runs within the strict power budget of networking hardware.
+                        </p>
+                    </div>
+
+                    <h2>Protocol-Aware Multivariate Patching in APEX</h2>
+                    <p>
+                        Together with Peiman Amini and Niloofar Bahadori, we developed APEX using a protocol-aware multivariate patching strategy. Standard time-series foundation models (TSFMs) treat multiple channels as independent univariate series or apply naive uniform tokenization across metrics.
+                    </p>
+                    <p>
+                        In contrast, APEX projects co-dependent networking metrics (such as channel utilization, client retry counts, and RSSI) into joint multivariate tokens. This enables cross-attention layers to immediately recognize the physical relationship between a spike in non-WiFi interference and a subsequent dip in DHCP transaction success rates.
+                    </p>
+
+                    <h2>Benchmarking APEX Against SOTA Foundation Models</h2>
+                    <p>
+                        We pretrained APEX on extensive Cisco Meraki enterprise telemetry and evaluated the architecture against general-purpose time-series foundation models (such as Toto) and classical statistical baselines (SARIMA) on our enterprise DHCP forecasting benchmark:
+                    </p>
+
+                    <ul>
+                        <li><strong>APEX-Large:</strong> Reduced Mean Absolute Error (MAE) by <strong>18% versus Toto</strong> and by <strong>38% versus SARIMA</strong> on complex multi-step forecasting horizons.</li>
+                        <li><strong>APEX-Edge:</strong> Retained highly competitive predictive accuracy while shrinking the parameter footprint to sub-1B, fitting comfortably within the memory and compute limits of AP-class embedded hardware through INT8 quantization.</li>
+                    </ul>
+
+                    <blockquote>
+                        "Domain-specialized models are beating generalists right now, especially at the edge. Native data matters. The future is not one giant model ruling everything; it is an ecosystem of smaller, domain-native models running close to the metal."
+                    </blockquote>
+
+                    <h2>What Lies Ahead</h2>
+                    <p>
+                        APEX proves that foundation models can operate efficiently outside centralized data centers. By combining domain-native pretraining with edge-aware quantization, we can empower network infrastructure to anticipate capacity bottlenecks, self-heal RF contention, and flag roaming stalls before users ever notice a glitch.
+                    </p>
+                    <p>
+                        This is only our first milestone with APEX. We are continuing to expand our edge models to cross-modal telemetry, uniting packet representations, RF spectrograms, and device logs into a unified edge intelligence stack.
+                    </p>
+                </div>
+
+                <div class="post-detail-footer">
+                    <a href="#posts" class="back-link" onclick="showPostsList(); return false;">&larr; Back to all posts</a>
+                    <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_edgeai-machinelearning-ai4networks-activity-7482303696450813952-Nzn0" target="_blank" rel="noopener" class="post-external-btn">
+                        <span>Discuss on LinkedIn</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Full Article 3: PLUME -->
+            <article id="post-detail-plume" class="post-full-detail" style="display: none;">
+                <div class="back-nav">
+                    <a href="#posts" class="back-link" onclick="showPostsList(); return false;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span>Back to Posts</span>
+                    </a>
+                </div>
+
+                <h1 class="post-detail-title">How a 140M Protocol-Aware Model Outperformed Trillion-Parameter LLMs</h1>
+
+                <div class="post-detail-meta">
+                    <div class="post-detail-meta-left">
+                        <span class="post-date">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <time datetime="2026-05-18">18 May, 2026</time>
+                        </span>
+                        <span>•</span>
+                        <span>5 min read</span>
+                        <span>•</span>
+                        <span class="post-tag">ArXiv:2603.13647 · SOTA</span>
+                    </div>
+                    <div class="post-detail-meta-right" style="display: flex; gap: 0.5rem;">
+                        <a href="https://arxiv.org/abs/2603.13647" target="_blank" rel="noopener" class="post-external-btn">
+                            <span>Read on ArXiv</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_plume-building-a-network-native-foundation-activity-7467798163064582144-YATk" target="_blank" rel="noopener" class="post-external-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-detail-article">
+                    <p>
+                        Almost two years ago at Cisco Meraki, we set out on an ambitious research effort: could we make zero-touch predictive network troubleshooting a reality? Our primary target was elevating the <strong>AI PCAP Analyzer</strong> (now Generally Available in the Meraki Dashboard) from a manual packet dissector into an intelligent, sequence-predictive foundation model.
+                    </p>
+
+                    <p>
+                        When network issues occur (such as sudden client disconnects, DHCP negotiation hangs, or roaming stalls), packet captures (PCAPs) contain ground truth. However, human analysis of PCAPs is tedious, highly technical, and difficult to scale across millions of live enterprise networks.
+                    </p>
+
+                    <h2>The Tokenization Wall</h2>
+                    <p>
+                        Our first intuition seemed obvious: convert PCAP files into standardized text markup (Packet Details Markup Language, or PDML) and feed them directly into modern generative language models using standard Byte-Pair Encoding (BPE) tokenizers like <code>tiktoken</code>.
+                    </p>
+
+                    <p>
+                        The outcome was disappointing. The models struggled with basic packet syntax, frequently hallucinating invalid hexadecimal fields and missing simple handshake progressions. We took all the textbook machine learning remedies:
+                    </p>
+                    <ul>
+                        <li>We enhanced dataset quality and stripped corrupted frames.</li>
+                        <li>We scaled up the training dataset by orders of magnitude across diverse enterprise topologies.</li>
+                        <li>We increased model depth, widened attention dimensions, and adjusted warmup schedules.</li>
+                        <li>We ran extensive hyperparameter sweeps across learning rates and batch sizes.</li>
+                    </ul>
+
+                    <p>
+                        Still, the model hit a hard performance ceiling.
+                    </p>
+
+                    <div class="post-callout">
+                        <div class="post-callout-title">The Critical Discovery: BPE Destroys Packet Hierarchy</div>
+                        <p style="margin: 0; font-size: 0.95rem;">
+                            When we closely inspected intermediate token boundaries, the flaw became immediate. General-purpose BPE tokenizers were designed for human languages and source code. When presented with network protocol streams, BPE slices hexadecimal bitmasks, MAC addresses, and sequence numbers across arbitrary character boundaries. Consider an 802.11 management frame: a 16-bit status code was being split into three meaningless pieces. The transformer was burning its entire parameter capacity attempting to reconstruct elementary protocol syntax rather than understanding network behavior.
+                        </p>
+                    </div>
+
+                    <h2>Protocol-Aware Tokenization from First Principles</h2>
+                    <p>
+                        We asked a fundamental question: <strong>can we make the tokenizer protocol-aware?</strong>
+                    </p>
+
+                    <p>
+                        We redesigned tokenization from first principles to mirror the hierarchical state machine of 802.11 frames. Instead of chopping raw characters, the tokenizer respects frame boundaries, protocol headers, information elements (IEs in TLV format), sequence numbers, and management frame subtypes as unified semantic tokens.
+                    </p>
+
+                    <p>
+                        The result was transformative. With a modest <strong>140M parameter GPT-2 style architecture</strong> trained on protocol-aware tokens:
+                    </p>
+                    <ul>
+                        <li>The model began outperforming multi-trillion parameter state-of-the-art frontier models on packet sequence completion, root-cause localization, and anomaly detection.</li>
+                        <li>Token sequence length contracted by over 3x, dramatically lowering memory footprint and training latency.</li>
+                        <li>On zero-shot wireless anomaly classification, PLUME achieved <strong>94.2% diagnostic accuracy</strong>, whereas frontier generalist LLMs achieved under 78% while hallucinating invalid 802.11 reason codes.</li>
+                    </ul>
+
+                    <blockquote>
+                        "Build your own AI models, but build them data-natively. When you design the model from first principles and keep native domain semantics central to the architecture, a 140M parameter model can comfortably outperform a multi-trillion parameter generalist."
+                    </blockquote>
+
+                    <h2>From Research Paper to Enterprise Production</h2>
+                    <p>
+                        This work, detailed in our research paper (<a href="https://arxiv.org/abs/2603.13647" target="_blank" rel="noopener">arXiv:2603.13647</a>), is a collaboration with Shazal Irshad and Jerome Henry, alongside our broader Cisco Meraki engineering team including Rajat Mehrotra, Salvatore Valenza, Qinghai Gao, Vishal Desai, Amine Choukir, Stefano Ferrari, Giacomo Trifilo, MinSe Kim, and many others.
+                    </p>
+
+                    <p>
+                        Today, these insights directly power Cisco Meraki's AI PCAP Analyzer in production, diagnosing complex connectivity issues across enterprise networks around the world in seconds instead of hours.
+                    </p>
+
+                    <p>
+                        The takeaway for applied AI research extends far beyond networking: whenever you work with structured, non-linguistic physical data (whether wireless signals, acoustics, sensor feeds, or telemetry), do not force your data into generic text molds. Build data-natively, respect the physics of your domain, and you will unlock unprecedented accuracy and efficiency.
+                    </p>
+                </div>
+
+                <div class="post-detail-footer">
+                    <a href="#posts" class="back-link" onclick="showPostsList(); return false;">&larr; Back to all posts</a>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <a href="https://arxiv.org/abs/2603.13647" target="_blank" rel="noopener" class="post-external-btn">
+                            <span>Read ArXiv Paper</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_plume-building-a-network-native-foundation-activity-7467798163064582144-YATk" target="_blank" rel="noopener" class="post-external-btn">
+                            <span>Discuss on LinkedIn</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- View: About (Steipete style) -->
+        <div id="view-about" class="page-view" style="display: none;">
+            <div class="about-header">
+                <h2>About Me</h2>
+                <p>ML Lead @ Cisco · PhD, UT Austin</p>
+            </div>
+
+            <div class="about-stats">
+                <div class="about-stat-card">
+                    <div class="about-stat-number">15+</div>
+                    <div class="about-stat-text">Premier Papers (MobiCom, CHI, SenSys)</div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="about-stat-number">10+</div>
+                    <div class="about-stat-text">US Patents Filed &amp; Granted</div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="about-stat-number">4+</div>
+                    <div class="about-stat-text">AI Products Shipped at Cisco</div>
+                </div>
+                <div class="about-stat-card">
+                    <div class="about-stat-number">PhD</div>
+                    <div class="about-stat-text">UT Austin CS (Wireless &amp; Sensing)</div>
+                </div>
+            </div>
+
+            <div class="about-body">
+                <p>
+                    I build AI systems that perceive, reason, and act in the physical world. As ML Tech Lead at <strong>Cisco Meraki</strong>, I lead initiatives in Generative AI for network intelligence, edge foundation models, and multimodal sensing.
+                </p>
+
+                <h3>Journey &amp; Doctoral Research</h3>
+                <p>
+                    I received my PhD in Computer Science from the <strong>University of Texas at Austin</strong>, advised by <a href="https://www.cs.utexas.edu/~lili/" target="_blank" rel="noopener">Prof. Lili Qiu</a>. My research pioneered <em>multimodal wireless sensing, passive RFID backscatter, room-scale acoustic localization, and context-aware mobile computing</em> (<a href="papers/PRADHAN-DISSERTATION-2020.pdf" target="_blank">read doctoral dissertation</a>). Previously, I researched mobile systems and energy optimization at <strong>NEC Laboratories America</strong>.
+                </p>
+
+                <h3>Vision: Physical AI Without Cameras</h3>
+                <p>
+                    Cameras introduce privacy concerns and occlusion bottlenecks; wearables require constant recharging. My research turns ambient wireless signals (passive RFID tags, mmWave radar, acoustics, and WiFi CSI) into rich spatial perception. We track 3D motion, measure body temperature, recognize micro-gestures, and authenticate users without capturing private imagery or needing battery power.
+                </p>
+
+                <h3>Shipping AI at Enterprise Scale</h3>
+                <p>
+                    At Cisco, our team bridges fundamental research into production features serving millions of network devices:
+                </p>
+                <ul>
+                    <li><strong>Cisco AI Assistant:</strong> Contextual RAG and LLM assistant for natural-language network diagnostics.</li>
+                    <li><strong>PLUME:</strong> Protocol-aware foundation model for 802.11 wireless traces (<a href="https://arxiv.org/abs/2603.13647" target="_blank" rel="noopener">ArXiv paper</a>).</li>
+                    <li><strong>Sherlock AI PCAP Analyzer:</strong> Automated packet analysis diagnosing connectivity anomalies in seconds.</li>
+                    <li><strong>AI-RRM:</strong> Reinforcement learning and predictive RRM optimizing wireless RF environments dynamically.</li>
+                </ul>
+
+                <h3>Speaking &amp; Collaborations</h3>
+                <p>
+                    I regularly publish and review for MobiCom, CHI, SenSys, UbiComp, INFOCOM, and NeurIPS. I'm always open to technical talks, academic collaborations, and research advising. Connect via <a href="mailto:swadhinjeet88@gmail.com">Email</a>, <a href="https://www.linkedin.com/in/swadhin-pradhan-32b51613/" target="_blank" rel="noopener">LinkedIn</a>, or follow on <a href="https://github.com/swadhin" target="_blank" rel="noopener">GitHub</a>.
+                </p>
+            </div>
+        </div>
         
         <footer>
             <p>© 2026 Swadhin Pradhan</p>
@@ -933,9 +2194,102 @@
     </main>
     
     <script>
-        // Function to switch to a specific tab
+        // Show a specific post article (Steipete style)
+        function showPostArticle(slug, updateHash = true) {
+            switchSection('posts', false);
+            
+            const overview = document.getElementById('posts-overview');
+            if (overview) overview.style.display = 'none';
+            
+            document.querySelectorAll('.post-full-detail').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            const targetArticle = document.getElementById('post-detail-' + slug);
+            if (targetArticle) {
+                targetArticle.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            if (updateHash) {
+                window.location.hash = 'post-' + slug;
+            }
+        }
+
+        // Show posts overview list
+        function showPostsList(updateHash = true) {
+            switchSection('posts', false);
+            
+            const overview = document.getElementById('posts-overview');
+            if (overview) overview.style.display = 'block';
+            
+            document.querySelectorAll('.post-full-detail').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            if (updateHash) {
+                window.location.hash = 'posts';
+            }
+        }
+
+        // Main view switching (Research, Posts, About)
+        function switchSection(sectionId, updateHash = true) {
+            // Hide all page views
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.remove('active');
+                view.style.display = 'none';
+            });
+            
+            // Show target view
+            const targetView = document.getElementById('view-' + sectionId);
+            if (targetView) {
+                targetView.classList.add('active');
+                targetView.style.display = 'block';
+            }
+
+            // If switching to posts, default to showing the list overview
+            if (sectionId === 'posts') {
+                const overview = document.getElementById('posts-overview');
+                if (overview) overview.style.display = 'block';
+                document.querySelectorAll('.post-full-detail').forEach(el => {
+                    el.style.display = 'none';
+                });
+            }
+            
+            // Update active state in top site nav
+            document.querySelectorAll('.site-nav .nav-link').forEach(link => {
+                if (link.dataset.nav === sectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            if (updateHash) {
+                window.location.hash = sectionId;
+            }
+        }
+
+        // Top site navigation click handlers
+        document.querySelectorAll('.site-nav .nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const nav = link.dataset.nav;
+                switchSection(nav, true);
+            });
+        });
+
+        // Logo click handler
+        const siteLogo = document.querySelector('.site-logo');
+        if (siteLogo) {
+            siteLogo.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchSection('research', true);
+            });
+        }
+
+        // Sub-tab switching inside Research view
         function switchToTab(tabId) {
-            // Update buttons
             document.querySelectorAll('.tab-btn').forEach(b => {
                 b.classList.remove('active');
                 b.setAttribute('aria-selected', 'false');
@@ -946,7 +2300,6 @@
                 activeBtn.setAttribute('aria-selected', 'true');
             }
             
-            // Update content
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             const activeContent = document.getElementById(tabId);
             if (activeContent) {
@@ -954,7 +2307,7 @@
             }
         }
         
-        // Tab switching with URL hash
+        // Research sub-tabs click events
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.dataset.tab;
@@ -963,13 +2316,72 @@
             });
         });
         
-        // Handle initial load and back/forward navigation
+        // Handle URL hash changes (back/forward buttons, deep linking)
         function handleHashChange() {
-            const hash = window.location.hash.slice(1); // Remove the '#'
-            const tabId = hash || 'sensing'; // Default to 'sensing' if no hash
-            switchToTab(tabId);
+            const hash = window.location.hash.slice(1);
+            if (hash.startsWith('post-')) {
+                const slug = hash.replace('post-', '');
+                if (['datanative-ai', 'apex-tsfm', 'plume'].includes(slug)) {
+                    showPostArticle(slug, false);
+                    return;
+                }
+            }
+            if (hash === 'posts') {
+                showPostsList(false);
+            } else if (hash === 'about') {
+                switchSection('about', false);
+            } else if (['sensing', 'genai', 'airquality', 'mobile'].includes(hash)) {
+                switchSection('research', false);
+                switchToTab(hash);
+            } else {
+                // Default to research view with sensing tab
+                switchSection('research', false);
+                switchToTab('sensing');
+            }
         }
         
+        // Theme toggle handling
+        (function() {
+            const toggleBtn = document.getElementById('theme-toggle');
+            
+            function getCurrentTheme() {
+                const attr = document.documentElement.getAttribute('data-theme');
+                if (attr) return attr;
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            
+            function updateAria(theme) {
+                if (!toggleBtn) return;
+                const nextMode = theme === 'dark' ? 'light' : 'dark';
+                toggleBtn.setAttribute('aria-label', `Switch to ${nextMode} mode`);
+                toggleBtn.setAttribute('title', `Switch to ${nextMode} mode`);
+            }
+            
+            if (toggleBtn) {
+                updateAria(getCurrentTheme());
+                
+                toggleBtn.addEventListener('click', () => {
+                    const currentTheme = getCurrentTheme();
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    try {
+                        localStorage.setItem('theme', newTheme);
+                    } catch (e) {}
+                    updateAria(newTheme);
+                });
+            }
+            
+            try {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                    if (!localStorage.getItem('theme')) {
+                        const newTheme = e.matches ? 'dark' : 'light';
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        updateAria(newTheme);
+                    }
+                });
+            } catch (e) {}
+        })();
+
         // Listen for hash changes (back/forward buttons)
         window.addEventListener('hashchange', handleHashChange);
         

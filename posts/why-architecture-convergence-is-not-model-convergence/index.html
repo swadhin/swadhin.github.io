@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Why Architecture Convergence is Not Model Convergence | Swadhin Pradhan</title>
+    <meta name="title" content="Why Architecture Convergence is Not Model Convergence | Swadhin Pradhan">
+    <meta name="description" content="We should not get trapped in infinite prompt and harness engineering on a single gigantic model to solve every domain problem. Exploit the simplistic genius of decoder-only transformers, but train your own domain-native models.">
+    <meta name="author" content="Swadhin Pradhan">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/">
+    <meta property="og:title" content="Why Architecture Convergence is Not Model Convergence | Swadhin Pradhan">
+    <meta property="og:description" content="We should not get trapped in infinite prompt and harness engineering on a single gigantic model to solve every domain problem. Exploit the simplistic genius of decoder-only transformers, but train your own domain-native models.">
+    <meta property="og:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    <meta property="article:published_time" content="2026-08-21T00:00:00Z">
+    <meta property="article:author" content="Swadhin Pradhan">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/">
+    <meta property="twitter:title" content="Why Architecture Convergence is Not Model Convergence">
+    <meta property="twitter:description" content="Exploit the simplistic genius of decoder-only transformers, but train your own domain-native models with your own proprietary data.">
+    <meta property="twitter:image" content="https://www.swadhinpradhan.com/photos/swadhin_o3.jpeg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.swadhinpradhan.com/posts/why-architecture-convergence-is-not-model-convergence/">
+    
+    <!-- Favicon - Regal Purple SP Monogram -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="alternate icon" href="../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../favicon_256.png">
+    <link rel="alternate" type="application/rss+xml" title="Swadhin Pradhan" href="../../rss.xml">
+    
+    <!-- Pre-paint Theme Detection -->
+    <script>
+        (function() {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored ? stored : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
+    
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-muted: #52525b;
+            --text-light: #71717a;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e4e4e7;
+            --card-bg: #ffffff;
+            --card-border: #e4e4e7;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            --badge-bg: #f4f4f5;
+            --nav-bg: rgba(250, 250, 250, 0.85);
+            --callout-bg: #eff6ff;
+            --callout-border: #bfdbfe;
+            --callout-title: #1e40af;
+            --code-bg: #f1f5f9;
+        }
+
+        [data-theme="dark"] {
+            --bg: #111827;
+            --text: #f9fafb;
+            --text-muted: #9ca3af;
+            --text-light: #6b7280;
+            --accent: #60a5fa;
+            --accent-hover: #93c5fd;
+            --border: #374151;
+            --card-bg: #1f2937;
+            --card-border: #374151;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            --badge-bg: #374151;
+            --nav-bg: rgba(17, 24, 39, 0.85);
+            --callout-bg: rgba(30, 58, 138, 0.25);
+            --callout-border: #1e3a8a;
+            --callout-title: #93c5fd;
+            --code-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        /* Site Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .site-logo:hover {
+            color: var(--accent);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.25rem 0;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 1px;
+        }
+
+        .header-utilities {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-icon-link,
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.4rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .header-icon-link:hover,
+        .theme-toggle-btn:hover {
+            color: var(--text);
+            border-color: var(--text-muted);
+            background: var(--badge-bg);
+        }
+
+        .theme-toggle-btn .moon-icon { display: block; }
+        .theme-toggle-btn .sun-icon { display: none; }
+        [data-theme="dark"] .theme-toggle-btn .moon-icon { display: none; }
+        [data-theme="dark"] .theme-toggle-btn .sun-icon { display: block; }
+
+        /* Main Container */
+        .container {
+            max-width: 820px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 4rem;
+            flex: 1;
+        }
+
+        /* Back Navigation */
+        .back-nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(-3px);
+        }
+
+        /* Post Header */
+        .post-detail-title {
+            font-size: 2.1rem;
+            line-height: 1.25;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+        }
+
+        .post-detail-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .post-detail-meta-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .post-tag {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .post-external-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .post-external-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Article Typography */
+        .post-detail-article {
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .post-detail-article p {
+            margin-bottom: 1.4rem;
+        }
+
+        .post-detail-article h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin: 2.4rem 0 1rem;
+            color: var(--text);
+        }
+
+        .post-detail-article h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.8rem 0 0.8rem;
+            color: var(--text);
+        }
+
+        .post-detail-article ul {
+            margin: 0 0 1.5rem 1.5rem;
+        }
+
+        .post-detail-article li {
+            margin-bottom: 0.6rem;
+        }
+
+        .post-detail-article strong {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .post-detail-article a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .post-detail-article a:hover {
+            color: var(--accent-hover);
+        }
+
+        .post-detail-article code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+            background: var(--code-bg);
+            padding: 0.15rem 0.35rem;
+            border-radius: 4px;
+        }
+
+        .post-callout {
+            background: var(--callout-bg);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.8rem 0;
+        }
+
+        .post-callout-title {
+            font-weight: 700;
+            color: var(--callout-title);
+            margin-bottom: 0.4rem;
+            font-size: 1.02rem;
+        }
+
+        .post-detail-article blockquote {
+            border-left: 3px solid var(--border);
+            padding-left: 1.25rem;
+            margin: 1.8rem 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        /* Post Footer */
+        .post-detail-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Site Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.25rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .post-detail-title {
+                font-size: 1.7rem;
+            }
+            .post-detail-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../../#research" class="site-logo">Swadhin Pradhan</a>
+            <div class="header-actions">
+                <nav class="site-nav">
+                    <a href="../../#research" class="nav-link">Research</a>
+                    <a href="../../#posts" class="nav-link active">Posts</a>
+                    <a href="../../#about" class="nav-link">About</a>
+                </nav>
+                <div class="header-utilities">
+                    <a href="../../rss.xml" class="header-icon-link" aria-label="RSS Feed" title="Subscribe via RSS">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 11a9 9 0 0 1 9 9"></path>
+                            <path d="M4 4a16 16 0 0 1 16 16"></path>
+                            <circle cx="5" cy="19" r="1"></circle>
+                        </svg>
+                    </a>
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Theme">
+                        <svg class="moon-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="sun-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="back-nav">
+            <a href="../../#posts" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Back to Posts</span>
+            </a>
+        </div>
+
+        <article>
+            <h1 class="post-detail-title">Why Architecture Convergence is Not Model Convergence</h1>
+
+            <div class="post-detail-meta">
+                <div class="post-detail-meta-left">
+                    <span class="post-date">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <time datetime="2026-08-21">21 Aug, 2026</time>
+                    </span>
+                    <span>•</span>
+                    <span>4 min read</span>
+                    <span>•</span>
+                    <span class="post-tag">DataNative · GenAI</span>
+                </div>
+                <div class="post-detail-meta-right">
+                    <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_datanative-genai-localai-activity-7496640330273026048-hQ9d" target="_blank" rel="noopener" class="post-external-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <span>View on LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="post-detail-article">
+                <p>
+                    We have come a long way from the era of millions of bespoke machine learning models. A decade ago, every specialized problem required its own hand-crafted pipeline: convolutional filters for visual features, recurrent units for temporal signals, random forests for tabular records, and heuristic post-processing to stitch them together. That explosion of fragile point solutions was the natural outcome of a massive cross-product between custom architectures and domain-specific data. Every niche problem spawned a custom pipeline that broke the moment real-world distributions shifted.
+                </p>
+
+                <p>
+                    Recently, however, the industry pendulum swung violently to the opposite extreme. The prevailing narrative today suggests that we should solve every real-world problem with a single, gigantic, closed generalist model accessed through an API. If it fails, add more prompt engineering. If that still fails, wrap it in an agentic loop, a synthetic prompt harness, or an orchestration framework.
+                </p>
+
+                <div class="post-callout">
+                    <div class="post-callout-title">The Hidden Tax of Model Renting</div>
+                    <p style="margin: 0; font-size: 0.95rem;">
+                        When you funnel high-velocity enterprise telemetry through third-party generalist models via prompt loops, you incur a double loss: you surrender your most valuable domain data to an external provider, and you never actually own the resulting intelligence. It is a perpetual renting cycle with compounding latency, cost, and governance liabilities.
+                    </p>
+                </div>
+
+                <h2>Architecture Convergence vs. Model Convergence</h2>
+                <p>
+                    My argument is simple: <strong>we are conflating architecture convergence with model convergence.</strong>
+                </p>
+                <p>
+                    The decoder-only autoregressive transformer is arguably the most scalable, elegant computational abstraction discovered in modern computing. Its attention dynamics, KV-caching efficiency, and parallelizable pretraining routines represent genuine architecture convergence. But adopting this universal architecture does not imply that everyone must query the exact same multi-trillion parameter monolithic model in the cloud.
+                </p>
+                <p>
+                    During my PhD at UT Austin working on multimodal wireless sensing and mobile computing, we repeatedly observed that physical signals (backscatter phase shifts, acoustic chirps, mmWave Doppler reflections) carry strict physical invariants. You cannot treat RF phase measurements or protocol state machines like conversational natural language. The laws of multipath propagation, signal attenuation, antenna impedance, and 802.11 state transitions are deterministic constraints. Trying to prompt a generic language model into respecting these physical laws is an uphill, losing battle.
+                </p>
+
+                <h2>The Data-Native Path</h2>
+                <p>
+                    The true win-win middle ground is straightforward:
+                </p>
+                <ul>
+                    <li><strong>Exploit the architecture:</strong> Reuse the simplistic genius of decoder-only transformers and the mature training, quantization, and serving tooling surrounding them.</li>
+                    <li><strong>Own your data:</strong> Train your own domain-native generative models directly on your proprietary telemetry, traces, and operational signals.</li>
+                    <li><strong>Build from first principles:</strong> Incorporate domain physics and protocol invariants directly into tokenization, representation schemes, and loss functions.</li>
+                    <li><strong>Eliminate software wrappers:</strong> Stop building fragile regex scaffolds and retry harnesses to compensate for a generalist model's lack of domain intuition.</li>
+                </ul>
+
+                <blockquote>
+                    "When algorithms are open and widely known, your true defensible moat is proprietary data, domain verification, and edge distribution. If you master those three, you should never rent out the intelligence layer to a fickle third party."
+                </blockquote>
+
+                <h2>Putting Philosophy into Practice on Wireless Access Points</h2>
+                <p>
+                    Within Cisco Meraki, we are putting this data-native philosophy directly into practice. Working alongside colleagues like Peiman Amini and Niloofar Bahadori, we are designing custom, sub-1B parameter generative models trained directly on access point telemetry, packet captures, and RF environments.
+                </p>
+                <p>
+                    Enterprise wireless access points process millions of frame transmissions per second across multiple 2.4 GHz, 5 GHz, and 6 GHz channels. They constantly track Clear Channel Assessment (CCA) thresholds, Received Signal Strength Indicator (RSSI) variances, beamforming feedback matrices, and client roaming handoffs. A model pre-trained natively on these telemetry streams develops an innate understanding of network physics.
+                </p>
+                <p>
+                    These models run close to the metal, right where network events unfold. Because they are pre-trained on domain-native distributions, they require a fraction of the compute and memory of generalist LLMs while delivering dramatically higher accuracy on anomaly detection, predictive forecasting, and automated root-cause analysis with zero cloud round-trip delay.
+                </p>
+                <p>
+                    The future of applied AI will not be dominated by a single remote model ruling every enterprise workflow. It will be powered by an interconnected ecosystem of compact, data-native models that enterprises train, control, and truly own.
+                </p>
+            </div>
+
+            <div class="post-detail-footer">
+                <a href="../../#posts" class="back-link">&larr; Back to all posts</a>
+                <a href="https://www.linkedin.com/posts/swadhin-pradhan-32b51613_datanative-genai-localai-activity-7496640330273026048-hQ9d" target="_blank" rel="noopener" class="post-external-btn">
+                    <span>Discuss on LinkedIn</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Swadhin Pradhan</p>
+    </footer>
+
+    <!-- Theme Toggle Handler -->
+    <script>
+        (function() {
+            const toggleBtn = document.getElementById('theme-toggle');
+            function getCurrentTheme() {
+                const attr = document.documentElement.getAttribute('data-theme');
+                if (attr) return attr;
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            function updateAria(theme) {
+                if (!toggleBtn) return;
+                const nextMode = theme === 'dark' ? 'light' : 'dark';
+                toggleBtn.setAttribute('aria-label', `Switch to ${nextMode} mode`);
+                toggleBtn.setAttribute('title', `Switch to ${nextMode} mode`);
+            }
+            if (toggleBtn) {
+                updateAria(getCurrentTheme());
+                toggleBtn.addEventListener('click', () => {
+                    const currentTheme = getCurrentTheme();
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    try {
+                        localStorage.setItem('theme', newTheme);
+                    } catch (e) {}
+                    updateAria(newTheme);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
